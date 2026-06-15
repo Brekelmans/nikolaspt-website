@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Powerliften bij NikolasPT Haaren — officiële USAPL & DPL club. Meerdere Nederlandse en Europese kampioenen.">
+<title>Powerliften | NikolasPT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .power-dark { background: var(--ink); }
+  .power-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
+  .power-intro p { color: #a0a4b0; font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; }
+  .champ-list { margin-top: 2rem; list-style: none; }
+  .champ-list li { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .9rem; color: #ccc; }
+  .champ-list li::before { content: '🏆'; font-size: 1.1rem; flex-shrink: 0; }
+  .champ-list strong { color: var(--accent2); font-weight: 600; }
+  .power-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+  .pcard { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 4px; padding: 1.5rem 1.8rem; border-left: 3px solid var(--accent); }
+  .pcard.gold { border-left-color: var(--accent2); }
+  .pcard h4 { color: var(--white); font-family: var(--font-display); font-size: 1.2rem; letter-spacing: .04em; margin-bottom: .4rem; }
+  .pcard p { color: #888; font-size: .85rem; line-height: 1.7; }
+  .fed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+  .fed-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.5rem; text-align: center; }
+  .fed-card .fed-name { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); letter-spacing: .06em; }
+  .fed-card .fed-status { font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; margin-top: .4rem; font-weight: 600; }
+  .fed-card.active .fed-status { color: var(--accent2); }
+  .fed-card.inactive .fed-status { color: #555; }
+  @media(max-width:900px){ .power-grid,.fed-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="powerliften.html" class="active">Powerliften</a></li>
+    <li><a href="groepslessen.html">Groepslessen</a></li>
+    <li><a href="rooster.html">Rooster</a></li>
+    <li><a href="coaches.html">Wie zijn wij</a></li>
+    <li><a href="recensies.html">Recensies</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="contact.html" class="nav-cta">Gratis proefles</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Officiële USAPL & DPL Club</div>
+    <h1 class="page-title">Powerliften</h1>
+    <p class="page-subtitle">Van beginner tot Nederlands kampioen. NikolasPT is een officieel aangesloten powerlifting club in Nederland — en we zijn er trots op.</p>
+  </div>
+  <div class="page-header-bar"></div>
+</div>
+
+<!-- KAMPIOENEN -->
+<section class="power-dark">
+  <div class="container">
+    <div class="power-grid">
+      <div class="power-intro">
+        <div class="section-label" style="color:var(--accent2)">Onze resultaten</div>
+        <h2 class="section-title light reveal">Nederlandse & Europese Kampioenen</h2>
+        <p class="reveal">Wij zijn met trots een USAPL en DPL aangesloten club. Onze coaches en leden hebben al meerdere nationale en internationale titels behaald.</p>
+        <p class="reveal">Er zijn drie powerlift-federaties in Nederland. Wij nemen deel aan twee: <strong style="color:#fff">USAPL</strong> en <strong style="color:#fff">DPL</strong>. De KNKF doen we niet aan mee.</p>
+        <ul class="champ-list">
+          <li class="reveal"><div><strong>Rob</strong> — Nederlands Kampioen 2024, open categorie -90kg klasse (USAPL)</div></li>
+          <li class="reveal"><div><strong>Coach Nikolas</strong> — Nederlands Kampioen 2024, open categorie -100kg + 3e overall (USAPL)</div></li>
+          <li class="reveal"><div><strong>Simone</strong> — Nederlands Kampioen 2024, junioren categorie -82,5kg klasse (USAPL)</div></li>
+          <li class="reveal"><div><strong>Lenneke</strong> — Nederlands Kampioen 2024, master-1 categorie -75kg klasse (USAPL)</div></li>
+          <li class="reveal"><div><strong>Coach Nikolas</strong> — Nederlands Kampioen 2025, open categorie -110kg (DPL)</div></li>
+          <li class="reveal"><div><strong>Coach Nikolas</strong> — Europees Kampioen 2023/24 USAPL toernooi Europa (na 4 rondes tegen atleten uit verschillende landen)</div></li>
+        </ul>
+      </div>
+      <div class="power-cards reveal">
+        <div class="pcard">
+          <h4>Wedstrijdvoorbereiding</h4>
+          <p>Coach Nikolas begeleidt atleten naar officiële USAPL- en DPL-wedstrijden. Persoonlijk peaking-schema, techniekcoaching en wedstrijdcoaching op de dag zelf.</p>
+        </div>
+        <div class="pcard">
+          <h4>Mock Meets</h4>
+          <p>Simuleer een volledige wedstrijd in een veilige omgeving. Ideaal om te wennen aan de regels, de druk en de sfeer van een officieel toernooi.</p>
+        </div>
+        <div class="pcard">
+          <h4>Beginnen met powerliften</h4>
+          <p>Nog nooit een squat, bench press of deadlift gedaan? Geen probleem. We bouwen rustig op vanuit de basis richting jouw eerste wedstrijd.</p>
+        </div>
+        <div class="pcard gold">
+          <h4>Eerste Europees USAPL Toernooi</h4>
+          <p>Coach Nikolas kroonde zich tot Europees Kampioen op het allereerste USA Powerlifting toernooi in Europa — na vier rondes tegen atleten uit meerdere landen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEDERATIES -->
+<section style="background:var(--steel)">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent2)">De federaties</div>
+    <h2 class="section-title light reveal">Powerlift-Federaties in Nederland</h2>
+    <p class="section-body reveal" style="color:#a0a4b0">Er zijn drie officiële powerlift-federaties actief in Nederland. NikolasPT neemt deel aan twee hiervan.</p>
+    <div class="fed-grid">
+      <div class="fed-card inactive reveal">
+        <div class="fed-name">KNKF</div>
+        <div class="fed-status inactive">Doen we niet aan mee</div>
+      </div>
+      <div class="fed-card active reveal">
+        <div class="fed-name">USAPL</div>
+        <div class="fed-status active">✓ Officieel aangesloten</div>
+        <p style="color:#888;font-size:.82rem;margin-top:.8rem;line-height:1.6">Internationale federatie. Wij nemen deel aan nationale en Europese wedstrijden.</p>
+      </div>
+      <div class="fed-card active reveal">
+        <div class="fed-name">DPL</div>
+        <div class="fed-status active">✓ Officieel aangesloten</div>
+        <p style="color:#888;font-size:.82rem;margin-top:.8rem;line-height:1.6">Nederlandse federatie. Coach Nikolas is reeds NL Kampioen 2025 in de open -110kg klasse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--accent);padding:clamp(2.5rem,6vw,4rem) var(--gap)">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem">
+    <div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);letter-spacing:.04em">Interesse in powerliften?</h2>
+      <p style="color:rgba(255,255,255,.8);margin-top:.5rem">Neem contact op — de eerste kennismaking is altijd gratis.</p>
+    </div>
+    <a href="contact.html" class="btn" style="background:var(--white);color:var(--accent);flex-shrink:0">Neem contact op</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Nikolas<span>PT</span></div>
+  <p>© 2024 NikolasPT · Langeweg 7, 5076 AH Haaren</p>
+  <p style="color:#444">USAPL · DPL</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

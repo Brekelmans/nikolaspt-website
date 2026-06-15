@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tarieven en diensten van NikolasPT Haaren. Personal training, groepslessen en gewichtscoaching.">
+<title>Prijzen & Diensten | NikolasPT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .prijzen-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.5rem; margin-top:3rem; }
+  .prijs-card { background:var(--white); border-radius:4px; border:1.5px solid var(--border); overflow:hidden; transition:box-shadow .25s,transform .25s; }
+  .prijs-card:hover { box-shadow:0 8px 32px rgba(0,0,0,.08); transform:translateY(-3px); }
+  .prijs-card.featured { border-color:var(--accent); position:relative; }
+  .featured-badge { position:absolute; top:0; right:1.5rem; background:var(--accent); color:var(--white); font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:0 0 4px 4px; }
+  .prijs-head { padding:2rem 1.8rem 1.5rem; border-bottom:1px solid var(--border); }
+  .prijs-head h3 { font-family:var(--font-display); font-size:1.6rem; letter-spacing:.04em; margin-bottom:.6rem; }
+  .price-line { display:flex; align-items:baseline; gap:.3rem; }
+  .price-amount { font-family:var(--font-display); font-size:3rem; color:var(--ink); line-height:1; }
+  .price-unit { font-size:.88rem; color:var(--muted); }
+  .price-note { font-size:.78rem; color:var(--accent); margin-top:.4rem; font-weight:600; }
+  .prijs-body { padding:1.5rem 1.8rem; }
+  .prijs-body ul { list-style:none; }
+  .prijs-body li { padding:.5rem 0; font-size:.88rem; color:var(--muted); display:flex; align-items:flex-start; gap:.7rem; border-bottom:1px solid #f0ede9; }
+  .prijs-body li:last-child { border-bottom:none; }
+  .prijs-body li::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
+  .prijs-footer { padding:1.5rem 1.8rem; border-top:1px solid var(--border); }
+  .korting-bar { background:var(--ink); border-radius:4px; padding:1.5rem 2rem; margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; color:#aaa; font-size:.9rem; line-height:1.65; }
+  .korting-bar strong { color:var(--accent2); }
+  .diensten-tekst { background:var(--steel); border-radius:4px; padding:2.5rem; margin-top:3rem; }
+  .diensten-tekst h3 { font-family:var(--font-display); font-size:2rem; color:var(--white); letter-spacing:.04em; margin-bottom:1rem; }
+  .diensten-tekst p { color:#a0a4b0; font-size:.92rem; line-height:1.8; margin-bottom:.8rem; }
+  .spec-list-inline { columns:2; column-gap:2rem; margin-top:1rem; list-style:none; }
+  .spec-list-inline li { font-size:.88rem; color:#ccc; padding:.4rem 0; break-inside:avoid; }
+  .spec-list-inline li::before { content:'— '; color:var(--accent); }
+  @media(max-width:700px){ .spec-list-inline { columns:1; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="powerliften.html">Powerliften</a></li>
+    <li><a href="groepslessen.html">Groepslessen</a></li>
+    <li><a href="rooster.html">Rooster</a></li>
+    <li><a href="coaches.html">Wie zijn wij</a></li>
+    <li><a href="recensies.html">Recensies</a></li>
+    <li><a href="prijzen.html" class="active">Prijzen</a></li>
+    <li><a href="contact.html" class="nav-cta">Gratis proefles</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Transparante tarieven</div>
+    <h1 class="page-title">Prijzen & Diensten</h1>
+    <p class="page-subtitle">Alle trajecten lopen over 13 weken. Betaal je het volledige traject in één keer? Dan ontvang je altijd 10% korting.</p>
+  </div>
+  <div class="page-header-bar"></div>
+</div>
+
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-label reveal">Personal Training</div>
+    <h2 class="section-title reveal">Personal Training Tarieven</h2>
+    <p class="section-body reveal">Bij NikolasPT hebben we leden met verschillende doelen en niveaus. We zoeken voor iedereen het meest passende traject en zorgen ervoor dat er echt goed getraind kan worden.</p>
+
+    <div class="prijzen-grid">
+      <div class="prijs-card reveal">
+        <div class="prijs-head">
+          <h3>1× per week</h3>
+          <div class="price-line"><span class="price-amount">€27,50</span><span class="price-unit">/ week</span></div>
+          <div class="price-note">In één keer betalen: 10% korting</div>
+        </div>
+        <div class="prijs-body">
+          <ul>
+            <li>1 personal training per week (13 weken)</li>
+            <li>Volledig op maat trainingsschema</li>
+            <li>Persoonlijke begeleiding door vaste coach</li>
+            <li>Wekelijkse voortgangsmeting</li>
+            <li>Gratis kennismakingstraining vooraf</li>
+          </ul>
+        </div>
+        <div class="prijs-footer"><a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Aanmelden</a></div>
+      </div>
+
+      <div class="prijs-card featured reveal">
+        <div class="featured-badge">Meest gekozen</div>
+        <div class="prijs-head">
+          <h3>2× per week</h3>
+          <div class="price-line"><span class="price-amount">€42,50</span><span class="price-unit">/ week</span></div>
+          <div class="price-note">In één keer betalen: 10% korting</div>
+        </div>
+        <div class="prijs-body">
+          <ul>
+            <li>2 personal trainings per week (13 weken)</li>
+            <li>Sneller resultaat door hogere frequentie</li>
+            <li>Volledig persoonlijk trainingsplan</li>
+            <li>Wekelijkse voortgangsmeting</li>
+            <li>Flexibele tijden — ook vroeg (bijv. 6:30 uur)</li>
+          </ul>
+        </div>
+        <div class="prijs-footer"><a href="contact.html" class="btn btn-primary" style="width:100%;display:block;text-align:center">Aanmelden</a></div>
+      </div>
+
+      <div class="prijs-card reveal">
+        <div class="prijs-head">
+          <h3>3× of meer</h3>
+          <div class="price-line"><span class="price-amount">€16,67</span><span class="price-unit">/ les</span></div>
+          <div class="price-note">In één keer betalen: 10% korting</div>
+        </div>
+        <div class="prijs-body">
+          <ul>
+            <li>3 of meer trainings per week (13 weken)</li>
+            <li>Maximale progressie in korte tijd</li>
+            <li>Ideaal voor wedstrijdvoorbereiding</li>
+            <li>Intensieve persoonlijke begeleiding</li>
+            <li>Gratis kennismakingstraining vooraf</li>
+          </ul>
+        </div>
+        <div class="prijs-footer"><a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Aanmelden</a></div>
+      </div>
+    </div>
+
+    <div class="korting-bar reveal">
+      <span style="font-size:1.5rem">👥</span>
+      <div><strong>Duo Training — 20% korting</strong><br>Train tegelijk met een vriend of partner. Je hebt nog steeds je eigen op maat gemaakte programma, maar deelt de ruimte met een medesporter. Veel leden vinden dit motiverend. Prijs: 20% lager dan bovenstaande individuele tarieven.</div>
+    </div>
+
+    <!-- GEWICHTSCOACHING -->
+    <div style="margin-top:4rem">
+      <div class="section-label reveal">Voedingscoaching</div>
+      <h2 class="section-title reveal">Gewichtscoaching</h2>
+      <p class="section-body reveal">Gewichtsbeheersing doe je niet alleen. Voeding speelt een grote rol. Alleen hard trainen is niet genoeg. Wij coachen, motiveren en ondersteunen je bij het bereiken van een duurzaam gewicht.</p>
+    </div>
+
+    <div class="prijzen-grid" style="margin-top:2rem">
+      <div class="prijs-card featured reveal">
+        <div class="prijs-head">
+          <h3>Gewichtscoaching</h3>
+          <div class="price-line"><span class="price-amount">€19,95</span><span class="price-unit">/ week</span></div>
+          <div class="price-note">Combineerbaar met elke training · 10% korting bij vooruitbetaling</div>
+        </div>
+        <div class="prijs-body">
+          <ul>
+            <li>Wekelijks persoonlijk voedingsschema</li>
+            <li>Boodschappenlijst elke week inbegrepen</li>
+            <li>App-account met voedingsoverzicht</li>
+            <li>Werkboek voor gedragsverandering</li>
+            <li>Geen dieet — een duurzaam eetpatroon</li>
+            <li>Het gezin mag gewoon mee-eten</li>
+            <li>Geen sapjes of pillen nodig</li>
+          </ul>
+        </div>
+        <div class="prijs-footer"><a href="contact.html" class="btn btn-primary" style="width:100%;display:block;text-align:center">Start met voedingscoaching</a></div>
+      </div>
+
+      <!-- GROEPSLESSEN -->
+      <div class="prijs-card reveal">
+        <div class="prijs-head">
+          <h3>Groepslessen</h3>
+          <div class="price-line"><span class="price-amount">€15,–</span><span class="price-unit">/ les</span></div>
+          <div class="price-note">13 lessen = €195,– · In één keer: €175,50</div>
+        </div>
+        <div class="prijs-body">
+          <ul>
+            <li>13-weken pakket (13 lessen)</li>
+            <li>Meerdere keren per week deelnemen mag</li>
+            <li>Lessen sneller opmaken mag</li>
+            <li>Pakket geldig 6 maanden na aankoop</li>
+            <li>Gespreid betalen: €65,– / maand</li>
+          </ul>
+        </div>
+        <div class="prijs-footer"><a href="groepslessen.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Meer over groepslessen</a></div>
+      </div>
+    </div>
+
+    <!-- DIENSTEN OVERZICHT -->
+    <div class="diensten-tekst reveal">
+      <h3>Onze specialisaties</h3>
+      <p>Sinds het ontstaan van onze diensten hebben we vele leden geholpen met veel verschillende doelen. Zo zijn vele leden afgevallen, in spier aangekomen, sterker en fitter geworden dan ooit tevoren.</p>
+      <p>Wij zijn ook een officiële USAPL club in Nederland. Bij NikolasPT kun je jezelf ontwikkelen in powerliften en wie weet kan je meedoen aan een officiële powerlift-wedstrijd.</p>
+      <ul class="spec-list-inline">
+        <li>Krachttraining</li>
+        <li>Conditietraining</li>
+        <li>Optimale verbranding</li>
+        <li>Training met blessures of aandoeningen</li>
+        <li>Powerliften (USAPL & DPL)</li>
+        <li>Gewichtsbeheersing</li>
+        <li>Voedingscoaching</li>
+        <li>Groepstraining</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--accent);padding:clamp(2.5rem,6vw,4rem) var(--gap)">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem">
+    <div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);letter-spacing:.04em">Laten samenwerken!</h2>
+      <p style="color:rgba(255,255,255,.8);margin-top:.5rem">De eerste training is gratis. Neem contact op en start vandaag.</p>
+    </div>
+    <a href="contact.html" class="btn" style="background:var(--white);color:var(--accent);flex-shrink:0">Gratis proefles</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Nikolas<span>PT</span></div>
+  <p>© 2024 NikolasPT · Langeweg 7, 5076 AH Haaren</p>
+  <p style="color:#444">Alle trajecten 13 weken · 10% korting bij vooruitbetaling</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

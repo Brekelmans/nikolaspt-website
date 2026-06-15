@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Groepstrainingen bij NikolasPT door coach Sarah. Kracht, conditie en vetverbranding in kleine groepen in Haaren.">
+<title>Groepslessen | NikolasPT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .groep-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
+  .groep-info p { color: var(--muted); font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; }
+  .prijs-box { background: var(--steel); border-radius: 4px; padding: 2rem; margin-top: 2rem; }
+  .prijs-box h4 { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 1.2rem; letter-spacing: .04em; }
+  .prijs-row { display: flex; justify-content: space-between; align-items: center; padding: .8rem 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .9rem; }
+  .prijs-row:last-child { border-bottom: none; }
+  .prijs-row .lbl { color: #aaa; }
+  .prijs-row .val { color: var(--accent2); font-weight: 600; }
+  .voorwaarden { background: var(--off-white); border-radius: 4px; padding: 2rem; margin-top: 1.5rem; }
+  .voorwaarden h4 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+  .voorwaarden li { font-size: .88rem; color: var(--muted); line-height: 1.75; margin-bottom: .5rem; padding-left: 1.2rem; position: relative; }
+  .voorwaarden li::before { content: '✓'; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+  .sarah-card { background: var(--white); border-radius: 4px; border: 1.5px solid var(--border); overflow: hidden; }
+  .sarah-head { background: var(--steel); padding: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+  .sarah-avatar { width: 64px; height: 64px; border-radius: 50%; background: #6B6E78; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.8rem; color: var(--white); flex-shrink: 0; }
+  .sarah-info h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); letter-spacing: .04em; line-height: 1; }
+  .sarah-info .role { font-size: .72rem; text-transform: uppercase; letter-spacing: .15em; color: var(--accent2); font-weight: 600; margin-top: .3rem; }
+  .sarah-body { padding: 2rem; }
+  .sarah-body p { font-size: .9rem; color: var(--muted); line-height: 1.75; margin-bottom: .8rem; }
+  .accessoires-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
+  .acc-item { background: var(--white); border: 1.5px solid var(--border); border-radius: 4px; padding: 1.2rem; text-align: center; }
+  .acc-item .icon { font-size: 1.8rem; margin-bottom: .5rem; }
+  .acc-item p { font-size: .82rem; color: var(--muted); font-weight: 500; }
+  @media(max-width:900px){ .groep-layout,.accessoires-grid { grid-template-columns:1fr; } }
+  @media(max-width:560px){ .accessoires-grid { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="powerliften.html">Powerliften</a></li>
+    <li><a href="groepslessen.html" class="active">Groepslessen</a></li>
+    <li><a href="rooster.html">Rooster</a></li>
+    <li><a href="coaches.html">Wie zijn wij</a></li>
+    <li><a href="recensies.html">Recensies</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="contact.html" class="nav-cta">Gratis proefles</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Nieuw bij NikolasPT</div>
+    <h1 class="page-title">Groepslessen</h1>
+    <p class="page-subtitle">Energieke groepstrainingen door coach Sarah. Kracht, conditie en vetverbranding — op jouw eigen niveau, in een kleine persoonlijke groep.</p>
+  </div>
+  <div class="page-header-bar"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="groep-layout">
+      <div>
+        <div class="section-label reveal">Over de groepslessen</div>
+        <h2 class="section-title reveal">Dynamische Trainingen</h2>
+        <p class="section-body reveal">Wij maken gebruik van ons eigen lichaamsgewicht, maar gebruiken ook leuke accessoires zoals kettlebells, elastieken, slam balls, dumbbells en de bosu bal.</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin-top:1rem" class="reveal">De oefeningen zelf komen steeds terug, zodat je je techniek en kracht blijft verbeteren — en er meer en meer plezier aan beleeft. Doe mee en ontdek hoe leuk en effectief trainen kan zijn!</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin-top:.8rem" class="reveal">Geniet van een energieke en motiverende workout die perfect is voor vetverbranding en het vergroten van je spierkracht. Maak van elke sessie een stap naar een sterker en gezonder leven!</p>
+
+        <div class="prijs-box reveal">
+          <h4>3 Maanden Pakket — 13 lessen</h4>
+          <div class="prijs-row"><span class="lbl">Prijs per les</span><span class="val">€ 15,–</span></div>
+          <div class="prijs-row"><span class="lbl">Totaal (13 lessen)</span><span class="val">€ 195,–</span></div>
+          <div class="prijs-row"><span class="lbl">In één keer betalen (10% korting)</span><span class="val">€ 175,50</span></div>
+          <div class="prijs-row"><span class="lbl">Gespreide betaling</span><span class="val">€ 65,– / maand</span></div>
+        </div>
+
+        <div class="voorwaarden reveal">
+          <h4>Voorwaarden pakket</h4>
+          <ul style="list-style:none">
+            <li>Het pakket bevat 13 lessen</li>
+            <li>Je mag meerdere keren per week deelnemen en lessen sneller opmaken</li>
+            <li>Zodra de 13 lessen zijn gebruikt, kan een nieuw pakket aangeschaft worden</li>
+            <li>Het pakket is maximaal 6 maanden geldig vanaf de aankoopdatum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="sarah-card reveal">
+          <div class="sarah-head">
+            <div class="sarah-avatar">SB</div>
+            <div class="sarah-info">
+              <h3>Coach Sarah</h3>
+              <div class="role">Groepstrainer & Personal Coach</div>
+            </div>
+          </div>
+          <div class="sarah-body">
+            <p>Sarah is een zeer vaardig personal trainer. Al ruim 3 jaar werkzaam bij NikolasPT, heeft ze uitgebreide ervaring opgebouwd in zowel individuele als groepsbegeleiding.</p>
+            <p>Ze past het niveau altijd aan op de deelnemers, maakt elke les uniek en zorgt voor een veilige, energieke sfeer. Of je nu voor het eerst sport of al jaren bezig bent — iedereen is welkom.</p>
+            <p style="margin-top:.5rem"><strong>Contact:</strong> <a href="tel:0636344573" style="color:var(--accent)">06 - 363 44 573</a></p>
+          </div>
+        </div>
+
+        <div style="background:var(--ink);border-radius:4px;padding:2rem;margin-top:1.5rem" class="reveal">
+          <h4 style="font-family:var(--font-display);font-size:1.3rem;color:var(--white);letter-spacing:.04em;margin-bottom:1rem">Wat kun je verwachten?</h4>
+          <div style="font-size:.88rem;color:#a0a4b0;line-height:2">
+            ✓ Kracht- en conditietraining op jouw niveau<br>
+            ✓ Vetverbranding als speerpunt<br>
+            ✓ Kleine, persoonlijke groepen<br>
+            ✓ Elke les anders — nooit eentonig<br>
+            ✓ Gebruik van eigen lichaamsgewicht én materialen<br>
+            ✓ Coaching door gecertificeerd trainer
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem" class="reveal">
+          <a href="rooster.html" class="btn btn-primary" style="display:block;text-align:center;margin-bottom:1rem">Bekijk het rooster</a>
+          <a href="contact.html" class="btn btn-outline" style="display:block;text-align:center">Gratis proefles aanvragen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSOIRES -->
+<section style="background:var(--white)">
+  <div class="container">
+    <div class="section-label reveal">Materialen</div>
+    <h2 class="section-title reveal">Wat gebruiken we?</h2>
+    <p class="section-body reveal">We werken met professionele materialen om elke training afwisselend en effectief te maken.</p>
+    <div class="accessoires-grid">
+      <div class="acc-item reveal"><div class="icon">🏋️</div><p>Kettlebells</p></div>
+      <div class="acc-item reveal"><div class="icon">🪢</div><p>Elastieken</p></div>
+      <div class="acc-item reveal"><div class="icon">⚫</div><p>Slam Balls</p></div>
+      <div class="acc-item reveal"><div class="icon">💪</div><p>Dumbbells</p></div>
+      <div class="acc-item reveal"><div class="icon">🟡</div><p>Bosu Bal</p></div>
+      <div class="acc-item reveal"><div class="icon">🧍</div><p>Eigen lichaamsgewicht</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--accent);padding:clamp(2.5rem,6vw,4rem) var(--gap)">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem">
+    <div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);letter-spacing:.04em">Neem contact op voor een gratis groepsles!</h2>
+      <p style="color:rgba(255,255,255,.8);margin-top:.5rem">Vrijblijvend kennismaken. Altijd welkom.</p>
+    </div>
+    <a href="contact.html" class="btn" style="background:var(--white);color:var(--accent);flex-shrink:0">Gratis groepsles</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Nikolas<span>PT</span></div>
+  <p>© 2024 NikolasPT · Langeweg 7, 5076 AH Haaren</p>
+  <p style="color:#444">Groepslessen door coach Sarah</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

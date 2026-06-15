@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rooster groepslessen NikolasPT Haaren. Bekijk de lestijden en schrijf je in voor een gratis proefles.">
+<title>Rooster Groepslessen | NikolasPT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .rooster-table { width:100%; border-collapse:collapse; background:var(--white); border-radius:4px; overflow:hidden; border:1.5px solid var(--border); }
+  .rooster-table th { background:var(--steel); color:var(--white); font-family:var(--font-display); font-size:1rem; letter-spacing:.08em; padding:1rem 1.2rem; text-align:left; border-right:1px solid rgba(255,255,255,.08); }
+  .rooster-table th:last-child { border-right:none; }
+  .rooster-table td { padding:.9rem 1.2rem; border-bottom:1px solid var(--border); border-right:1px solid var(--border); font-size:.9rem; color:var(--muted); vertical-align:middle; }
+  .rooster-table td:last-child { border-right:none; }
+  .rooster-table tr:last-child td { border-bottom:none; }
+  .rooster-table tr:hover td { background:#fafaf9; }
+  .les-badge { display:inline-block; padding:.3rem .8rem; border-radius:2px; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+  .les-badge.kracht { background:rgba(200,16,46,.1); color:var(--accent); }
+  .les-badge.conditie { background:rgba(232,200,74,.12); color:#a0882a; }
+  .les-badge.mix { background:rgba(43,45,53,.12); color:var(--steel); }
+  .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
+  .info-card { background:var(--white); border:1.5px solid var(--border); border-radius:4px; padding:1.8rem; }
+  .info-card h4 { font-family:var(--font-display); font-size:1.3rem; letter-spacing:.04em; margin-bottom:.8rem; }
+  .info-card p { font-size:.88rem; color:var(--muted); line-height:1.75; }
+  .note-bar { background:var(--ink); border-radius:4px; padding:1.2rem 1.8rem; margin-top:2rem; display:flex; align-items:center; gap:1.2rem; color:#aaa; font-size:.88rem; }
+  .note-bar strong { color:var(--accent2); }
+  @media(max-width:700px){
+    .rooster-table { font-size:.82rem; }
+    .rooster-table td,.rooster-table th { padding:.7rem .8rem; }
+    .info-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="powerliften.html">Powerliften</a></li>
+    <li><a href="groepslessen.html">Groepslessen</a></li>
+    <li><a href="rooster.html" class="active">Rooster</a></li>
+    <li><a href="coaches.html">Wie zijn wij</a></li>
+    <li><a href="recensies.html">Recensies</a></li>
+    <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="contact.html" class="nav-cta">Gratis proefles</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Groepslessen door coach Sarah</div>
+    <h1 class="page-title">Rooster</h1>
+    <p class="page-subtitle">Bekijk hieronder de lestijden. Neem contact op voor de meest actuele tijden of schrijf je direct in voor een gratis proefles.</p>
+  </div>
+  <div class="page-header-bar"></div>
+</div>
+
+<section style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-label reveal">Lestijden</div>
+    <h2 class="section-title reveal">Wekelijks Rooster</h2>
+    <p class="section-body reveal">De tijden hieronder zijn indicatief. Neem contact op met coach Sarah voor het meest actuele rooster of om je direct in te schrijven.</p>
+
+    <div style="margin-top:2.5rem;overflow-x:auto" class="reveal">
+      <table class="rooster-table">
+        <thead>
+          <tr>
+            <th>Dag</th>
+            <th>Tijd</th>
+            <th>Les</th>
+            <th>Coach</th>
+            <th>Niveau</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Maandag</strong></td>
+            <td>09:00 – 10:00</td>
+            <td><span class="les-badge mix">Kracht & Conditie</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+          <tr>
+            <td><strong>Maandag</strong></td>
+            <td>19:00 – 20:00</td>
+            <td><span class="les-badge kracht">Krachttraining</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+          <tr>
+            <td><strong>Woensdag</strong></td>
+            <td>09:00 – 10:00</td>
+            <td><span class="les-badge conditie">Conditie & Burn</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+          <tr>
+            <td><strong>Woensdag</strong></td>
+            <td>19:00 – 20:00</td>
+            <td><span class="les-badge mix">Kracht & Conditie</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+          <tr>
+            <td><strong>Vrijdag</strong></td>
+            <td>09:00 – 10:00</td>
+            <td><span class="les-badge kracht">Krachttraining</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+          <tr>
+            <td><strong>Zaterdag</strong></td>
+            <td>09:30 – 10:30</td>
+            <td><span class="les-badge mix">Full Body Burn</span></td>
+            <td>Coach Sarah</td>
+            <td>Alle niveaus</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-bar reveal">
+      <span style="font-size:1.3rem">📋</span>
+      <span>Tijden zijn onder voorbehoud. <strong>Neem contact op met coach Sarah</strong> voor het meest actuele rooster: <a href="tel:0636344573" style="color:var(--accent2)">06 - 363 44 573</a></span>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h4>Je eerste les</h4>
+        <p>De eerste groepsles is altijd gratis. Zo kun je vrijblijvend kennismaken met de sfeer, de coach en de manier van trainen — zonder verplichtingen.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:1.2rem;display:inline-block">Gratis proefles aanvragen</a>
+      </div>
+      <div class="info-card reveal">
+        <h4>Inschrijven & pakket</h4>
+        <p>Na de proefles kun je een pakket kiezen. Het 13-weken pakket kost €195,– (of €175,50 bij vooruitbetaling). Je mag meerdere keren per week meedoen.</p>
+        <a href="prijzen.html" class="btn btn-outline" style="margin-top:1.2rem;display:inline-block">Bekijk alle tarieven</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Nikolas<span>PT</span></div>
+  <p>© 2024 NikolasPT · Langeweg 7, 5076 AH Haaren</p>
+  <p style="color:#444">Groepslessen door coach Sarah</p>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
