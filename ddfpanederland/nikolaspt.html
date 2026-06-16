@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Schrijf je in voor de DDFPA Local Meet bij NikolasPT op 11 juli 2026 in Haaren.">
+<title>Inschrijven Local Meet NikolasPT | DDFPA Nederland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#0A0A0A; --off-white:#F5F5F5; --white:#FFFFFF; --steel:#1C1C1C;
+    --muted:#6B6B6B; --border:#DDDDDD; --gold:#B89B5E;
+    --font-display:'Roboto Slab',serif; --font-body:'Inter',sans-serif;
+    --max:1200px; --gap:clamp(1.5rem,5vw,4rem);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--off-white);color:var(--ink);line-height:1.65}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 var(--gap);height:76px;border-bottom:2px solid var(--gold)}
+  .nav-logo{display:flex;align-items:center;gap:.8rem}
+  .nav-logo-badge{width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:.95rem;color:var(--gold);flex-shrink:0}
+  .nav-logo-text{font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--white);line-height:1}
+  .nav-logo-text span{color:var(--gold)}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+  .nav-links a{font-size:.76rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:#ccc;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-cta{background:var(--gold) !important;color:var(--ink) !important;padding:.5rem 1.2rem !important;border-radius:2px;font-weight:700 !important}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+  .nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:5px 0}
+
+  .page-header{padding-top:76px;background:var(--steel);position:relative;overflow:hidden}
+  .page-header-inner{max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--gap) clamp(2rem,4vw,3rem);position:relative;z-index:1}
+  .page-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+  .page-title{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,5.5vw,4.6rem);line-height:1.02;color:var(--white)}
+  .page-subtitle{margin-top:1rem;font-size:1rem;color:#a8a8a8;max-width:560px;line-height:1.75}
+  .page-header-bar{height:4px;background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);opacity:.4}
+
+  .container{max-width:var(--max);margin:0 auto}
+  section{padding:clamp(3rem,8vw,6rem) var(--gap)}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  .meet-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+
+  /* Info card sidebar */
+  .meet-info-card{background:var(--ink);border-radius:8px;padding:2.5rem;color:var(--white);position:sticky;top:96px}
+  .meet-info-card .badge{display:inline-block;background:var(--gold);color:var(--ink);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border-radius:2px;margin-bottom:1.5rem}
+  .meet-info-card h3{font-family:var(--font-display);font-weight:800;font-size:1.7rem;line-height:1.2;margin-bottom:1.5rem}
+  .meet-detail{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .meet-detail:last-child{border-bottom:none}
+  .meet-detail .ic{font-size:1.2rem;flex-shrink:0}
+  .meet-detail .lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.2rem}
+  .meet-detail .val{font-size:.92rem;color:#eee;font-weight:500}
+  .price-block{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center}
+  .price-block .amount{font-family:var(--font-display);font-weight:800;font-size:3rem;color:var(--gold);line-height:1}
+  .price-block .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#999;margin-top:.4rem}
+
+  /* Form */
+  .form-card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:clamp(1.8rem,3vw,3rem)}
+  .form-card h3{font-family:var(--font-display);font-weight:800;font-size:1.6rem;margin-bottom:.5rem}
+  .form-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:2rem}
+  .form-section-label{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:2rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+  .form-section-label:first-of-type{margin-top:0;padding-top:0;border-top:none}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+  .form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem}
+  .form-group.full{grid-column:1/-1}
+  .form-group label{font-size:.78rem;font-weight:600;color:var(--ink)}
+  .form-group label .req{color:var(--gold)}
+  .form-group input,.form-group select{background:var(--off-white);border:1.5px solid var(--border);border-radius:4px;padding:.85rem 1rem;font-family:var(--font-body);font-size:.92rem;color:var(--ink);outline:none;transition:border-color .2s}
+  .form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+  .radio-group{display:flex;gap:1rem;flex-wrap:wrap}
+  .radio-option{flex:1;min-width:140px;position:relative}
+  .radio-option input{position:absolute;opacity:0;cursor:pointer}
+  .radio-option label{display:block;border:1.5px solid var(--border);border-radius:4px;padding:1rem 1.2rem;cursor:pointer;font-size:.88rem;font-weight:500;text-align:center;transition:all .2s}
+  .radio-option input:checked + label{border-color:var(--gold);background:rgba(184,155,94,.08);color:var(--ink);font-weight:700}
+  .submit-row{margin-top:2.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .btn{display:inline-block;padding:1rem 2.6rem;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;transition:all .25s;cursor:pointer;border:none;font-family:var(--font-body)}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:#a3884f}
+  .submit-note{font-size:.8rem;color:var(--muted)}
+  #form-success{display:none;margin-top:1.5rem;background:rgba(184,155,94,.1);border:1px solid var(--gold);border-radius:4px;padding:1.2rem 1.5rem;color:var(--ink);font-size:.9rem}
+
+  footer{background:#050505;padding:2rem var(--gap);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  footer .logo{font-family:var(--font-display);font-weight:800;font-size:1.3rem;color:var(--white)}
+  footer .logo span{color:var(--gold)}
+  footer p{font-size:.76rem;color:#555}
+
+  @media(max-width:900px){
+    .meet-layout{grid-template-columns:1fr}
+    .meet-info-card{position:static}
+    .form-grid{grid-template-columns:1fr}
+    .nav-links{display:none;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:#050505;padding:2rem;gap:1rem}
+    .nav-links.open{display:flex}
+    .nav-toggle{display:block}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-badge">DD</div>
+    <div class="nav-logo-text">DDFPA<span> Nederland</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="nikolaspt.html" class="active">NikolasPT Meet</a></li>
+    <li><a href="index.html#bestuur">Bestuur</a></li>
+    <li><a href="#inschrijfformulier" class="nav-cta">Inschrijven</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Open for subscription</div>
+    <h1 class="page-title">DDFPA Local Meet<br>NikolasPT</h1>
+    <p class="page-subtitle">11 juli 2026 · Haaren · Schrijf je nu in voor deze lokale powerlifting wedstrijd.</p>
+  </div>
+  <div class="page-header-bar"></div>
+</div>
+
+<section style="background:var(--off-white)" id="inschrijfformulier">
+  <div class="container">
+    <div class="meet-layout">
+
+      <!-- INFO SIDEBAR -->
+      <div class="meet-info-card reveal">
+        <span class="badge">Open for subscription</span>
+        <h3>DDFPA Local Meet — NikolasPT</h3>
+        <div class="meet-detail">
+          <span class="ic">📅</span>
+          <div><div class="lbl">Datum</div><div class="val">11 juli 2026</div></div>
+        </div>
+        <div class="meet-detail">
+          <span class="ic">📍</span>
+          <div><div class="lbl">Locatie</div><div class="val">NikolasPT<br>Langeweg 7, 5076 AH Haaren</div></div>
+        </div>
+        <div class="meet-detail">
+          <span class="ic">🏋️</span>
+          <div><div class="lbl">Disciplines</div><div class="val">Squat · Bench Press · Deadlift</div></div>
+        </div>
+        <div class="meet-detail">
+          <span class="ic">🎽</span>
+          <div><div class="lbl">Categorieën</div><div class="val">Classic (Raw) & Equipped</div></div>
+        </div>
+        <div class="price-block">
+          <div class="amount">€ 50</div>
+          <div class="label">Vaste inschrijfprijs</div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <h3>Subscribe here</h3>
+        <p class="sub">Vul het formulier volledig in om je in te schrijven voor de DDFPA Local Meet bij NikolasPT.</p>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-section-label">Persoonlijke gegevens</div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label>Full name <span class="req">*</span></label>
+              <input type="text" placeholder="Volledige naam" required>
+            </div>
+            <div class="form-group">
+              <label>Date of birth</label>
+              <input type="date">
+            </div>
+            <div class="form-group">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" placeholder="jouw@email.nl" required>
+            </div>
+            <div class="form-group full">
+              <label>Usapl membership nr. <span class="req">*</span> <span style="color:var(--muted);font-weight:400">(if obtained)</span></label>
+              <input type="text" placeholder="Lidmaatschapsnummer (indien van toepassing)">
+            </div>
+          </div>
+
+          <div class="form-section-label">Wedstrijdgegevens</div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label>Weight class</label>
+              <select>
+                <option value="">Kies gewichtsklasse...</option>
+                <option>-53kg (vrouwen)</option>
+                <option>-58kg (vrouwen)</option>
+                <option>-63kg (vrouwen)</option>
+                <option>-69kg (vrouwen)</option>
+                <option>-76kg (vrouwen)</option>
+                <option>-84kg (vrouwen)</option>
+                <option>84+kg (vrouwen)</option>
+                <option>-59kg (mannen)</option>
+                <option>-66kg (mannen)</option>
+                <option>-74kg (mannen)</option>
+                <option>-83kg (mannen)</option>
+                <option>-93kg (mannen)</option>
+                <option>-105kg (mannen)</option>
+                <option>-120kg (mannen)</option>
+                <option>120+kg (mannen)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Opener squat (kg)</label>
+              <input type="number" placeholder="bijv. 120">
+            </div>
+            <div class="form-group">
+              <label>Opener Benchpress (kg)</label>
+              <input type="number" placeholder="bijv. 80">
+            </div>
+            <div class="form-group">
+              <label>Opener Deadlift (kg)</label>
+              <input type="number" placeholder="bijv. 150">
+            </div>
+          </div>
+
+          <div class="form-section-label">Categorie</div>
+          <div class="form-group full">
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" name="categorie" id="classic" value="classic" checked>
+                <label for="classic">Classic (Raw)</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="categorie" id="equipped" value="equipped">
+                <label for="equipped">Equipped</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-gold">Submit — € 50</button>
+            <span class="submit-note">Na inschrijving ontvang je een bevestiging per e-mail.</span>
+          </div>
+          <div id="form-success">✓ Bedankt voor je inschrijving! Het bestuur neemt zo snel mogelijk contact met je op voor de betaling en verdere details.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">DDFPA<span> Nederland</span></div>
+  <p>© 2026 DDFPA Nederland · Affiliatie van IDFPA</p>
+  <p style="color:#444">Bestuur: thasingmendez@gmail.com</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.querySelector('button[type=submit]').disabled = true;
+    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>

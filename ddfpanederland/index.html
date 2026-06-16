@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DDFPA Nederland — officiële Nederlandse powerlifting bond, affiliatie van IDFPA. Wedstrijdkalender, uitslagen en inschrijvingen.">
+<title>DDFPA Nederland | Powerlifting Bond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0A0A0A;
+    --off-white: #F5F5F5;
+    --white:     #FFFFFF;
+    --steel:     #1C1C1C;
+    --accent:    #1A1A1A;
+    --muted:     #6B6B6B;
+    --border:    #DDDDDD;
+    --gold:      #B89B5E;
+
+    --font-display: 'Roboto Slab', serif;
+    --font-body:    'Inter', sans-serif;
+
+    --max: 1200px;
+    --gap: clamp(1.5rem, 5vw, 4rem);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.65; font-size: 16px; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,.97); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gap); height: 76px; border-bottom: 2px solid var(--gold); }
+  .nav-logo { display: flex; align-items: center; gap: .8rem; }
+  .nav-logo-badge { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: .95rem; color: var(--gold); flex-shrink: 0; }
+  .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--white); line-height: 1; letter-spacing: .01em; }
+  .nav-logo-text span { color: var(--gold); }
+  .nav-logo-tagline { font-size: .62rem; color: #999; letter-spacing: .1em; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .76rem; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: #ccc; transition: color .2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { background: var(--gold) !important; color: var(--ink) !important; padding: .5rem 1.2rem !important; border-radius: 2px; font-weight: 700 !important; }
+  .nav-cta:hover { background: #a3884f !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
+
+  /* ── HERO ── */
+  #hero { min-height: 92vh; background: var(--steel); display: flex; align-items: center; padding-top: 76px; position: relative; overflow: hidden; }
+  #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 75% 30%, rgba(184,155,94,.12) 0%, transparent 55%); pointer-events: none; }
+  .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+  .hero-inner { max-width: var(--max); margin: 0 auto; padding: 4rem var(--gap); position: relative; z-index: 1; width: 100%; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: .7rem; font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--gold); }
+  .hero-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(3rem, 7vw, 5.5rem); line-height: .98; color: var(--white); letter-spacing: .005em; margin-bottom: 1.5rem; max-width: 800px; }
+  .hero-title .gold { color: var(--gold); }
+  .hero-sub { font-size: 1.05rem; color: #a8a8a8; max-width: 560px; line-height: 1.75; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn { display: inline-block; padding: .9rem 2.1rem; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; border-radius: 2px; transition: all .25s; cursor: pointer; border: none; font-family: var(--font-body); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: #a3884f; }
+  .btn-outline-light { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.3); }
+  .btn-outline-light:hover { border-color: var(--white); background: rgba(255,255,255,.06); }
+
+  .hero-affil { display: flex; gap: 2.5rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.1); max-width: 700px; }
+  .affil-item { display: flex; flex-direction: column; }
+  .affil-item .label { font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; color: #777; margin-bottom: .3rem; }
+  .affil-item .val { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); }
+
+  /* ── AGENDA ── */
+  #agenda { background: var(--white); padding: clamp(3rem,8vw,6rem) var(--gap); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .section-label { font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: .8rem; }
+  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem,4.5vw,3.4rem); line-height: 1.02; margin-bottom: 1.2rem; color: var(--ink); }
+  .section-title.light { color: var(--white); }
+  .section-body { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; margin-bottom: 3rem; }
+
+  .agenda-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .agenda-item { background: var(--white); display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 1.5rem; padding: 1.6rem 2rem; transition: background .2s; }
+  .agenda-item:hover { background: #fafafa; }
+  .agenda-date { display: flex; flex-direction: column; }
+  .agenda-date .day { font-family: var(--font-display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--ink); }
+  .agenda-date .month { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .agenda-info h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin-bottom: .3rem; }
+  .agenda-info p { font-size: .85rem; color: var(--muted); }
+  .agenda-status { text-align: right; }
+  .status-badge { display: inline-block; padding: .4rem 1rem; border-radius: 2px; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+  .status-closed { background: #ececec; color: #888; }
+  .status-open { background: var(--ink); color: var(--white); }
+  .status-soon { background: rgba(184,155,94,.12); color: var(--gold); border: 1px solid rgba(184,155,94,.3); }
+  .agenda-link { font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-top: .5rem; display: inline-block; text-decoration: underline; }
+
+  /* ── OVER ONS ── */
+  #over { background: var(--steel); padding: clamp(3rem,8vw,6rem) var(--gap); }
+  .over-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: center; }
+  .over-text p { color: #a8a8a8; font-size: .95rem; line-height: 1.85; margin-bottom: 1.2rem; }
+  .over-text strong { color: var(--white); }
+  .over-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+  .stat-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 2rem 1.5rem; text-align: center; }
+  .stat-card .n { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+  .stat-card .l { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: #999; margin-top: .5rem; }
+
+  /* ── SPONSOR ── */
+  #sponsor { background: var(--white); padding: clamp(2.5rem,6vw,4rem) var(--gap); text-align: center; }
+  .sponsor-box { display: inline-flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+  .sponsor-box img { max-width: 320px; border-radius: 4px; border: 1.5px solid var(--border); padding: 1rem; background: var(--off-white); }
+
+  /* ── BESTUUR ── */
+  #bestuur { background: var(--off-white); padding: clamp(3rem,8vw,6rem) var(--gap); }
+  .bestuur-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 3rem; }
+  .bestuur-card { background: var(--white); padding: 2.2rem 1.8rem; }
+  .bestuur-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; color: var(--white); margin-bottom: 1.2rem; }
+  .bestuur-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: .3rem; }
+  .bestuur-card .role { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); font-weight: 600; margin-bottom: .8rem; }
+  .bestuur-card a { font-size: .82rem; color: var(--muted); word-break: break-all; }
+  .bestuur-card a:hover { color: var(--ink); }
+
+  /* ── CTA ── */
+  #cta { background: var(--ink); padding: clamp(3rem,7vw,5rem) var(--gap); }
+  .cta-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; max-width: var(--max); margin: 0 auto; }
+  .cta-inner h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem,5vw,3.2rem); color: var(--white); line-height: 1.05; }
+  .cta-inner p { color: #a8a8a8; margin-top: .6rem; }
+
+  footer { background: #050505; padding: 2rem var(--gap); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; color: var(--white); }
+  footer .logo span { color: var(--gold); }
+  footer p { font-size: .76rem; color: #555; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .over-grid { grid-template-columns: 1fr; }
+    .bestuur-grid { grid-template-columns: 1fr; }
+    .agenda-item { grid-template-columns: 1fr; text-align: left; gap: .8rem; }
+    .agenda-status { text-align: left; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 76px; left: 0; right: 0; background: #050505; padding: 2rem; gap: 1rem; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .hero-affil { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-badge">DD</div>
+    <div>
+      <div class="nav-logo-text">DDFPA<span> Nederland</span></div>
+      <div class="nav-logo-tagline">Powerlifting Federatie</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="nikolaspt.html">NikolasPT Meet</a></li>
+    <li><a href="#bestuur">Bestuur</a></li>
+    <li><a href="nikolaspt.html" class="nav-cta">Inschrijven</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Officiële Powerlifting Bond · Nederland</div>
+    <h1 class="hero-title">De meest <span class="gold">geteste</span> powerlift bond van Nederland</h1>
+    <p class="hero-sub">DDFPA Nederland (voorheen USAPL Nederland) organiseert powerlift-wedstrijden door heel het land. Eerlijk, transparant en op het hoogste niveau — voor elke lifter.</p>
+    <div class="hero-actions">
+      <a href="nikolaspt.html" class="btn btn-gold">Schrijf je in voor een meet</a>
+      <a href="results.html" class="btn btn-outline-light">Bekijk uitslagen</a>
+    </div>
+    <div class="hero-affil">
+      <div class="affil-item"><span class="label">Affiliatie van</span><span class="val">IDFPA</span></div>
+      <div class="affil-item"><span class="label">Nauwe band met</span><span class="val">USA Powerlifting</span></div>
+      <div class="affil-item"><span class="label">Voorheen bekend als</span><span class="val">USAPL Nederland</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="agenda">
+  <div class="container">
+    <div class="section-label reveal">Wedstrijdkalender 2026</div>
+    <h2 class="section-title reveal">Agenda</h2>
+    <p class="section-body reveal">Bekijk hieronder de geplande wedstrijden en meets. Inschrijving verloopt per evenement.</p>
+
+    <div class="agenda-list">
+      <div class="agenda-item reveal">
+        <div class="agenda-date"><span class="day">03</span><span class="month">Mei 2026</span></div>
+        <div class="agenda-info">
+          <h3>IDFPA World Championship Qualifier</h3>
+          <p>Locatie: Hoofddorp</p>
+          <a href="results.html" class="agenda-link">Bekijk uitslagen →</a>
+        </div>
+        <div class="agenda-status"><span class="status-badge status-closed">Gesloten</span></div>
+      </div>
+
+      <div class="agenda-item reveal">
+        <div class="agenda-date"><span class="day">11</span><span class="month">Juli 2026</span></div>
+        <div class="agenda-info">
+          <h3>DDFPA Local Meet — NikolasPT</h3>
+          <p>Locatie: Haaren, Langeweg 7</p>
+          <a href="nikolaspt.html" class="agenda-link">Schrijf je in →</a>
+        </div>
+        <div class="agenda-status"><span class="status-badge status-open">Open</span></div>
+      </div>
+
+      <div class="agenda-item reveal">
+        <div class="agenda-date"><span class="day">01</span><span class="month">Aug 2026</span></div>
+        <div class="agenda-info">
+          <h3>RO'S Cup Mockmeet</h3>
+          <p>Locatie: Hoofddorp · Contact Ro voor inschrijving</p>
+          <a href="mailto:robinkensenhuis@icloud.com" class="agenda-link">Contact: robinkensenhuis@icloud.com →</a>
+        </div>
+        <div class="agenda-status"><span class="status-badge status-open">Open</span></div>
+      </div>
+
+      <div class="agenda-item reveal">
+        <div class="agenda-date"><span class="day">—</span><span class="month">TBD 2026</span></div>
+        <div class="agenda-info">
+          <h3>DDFPA National Championship 2026</h3>
+          <p>Locatie: Nog niet bekend</p>
+        </div>
+        <div class="agenda-status"><span class="status-badge status-soon">Binnenkort</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="over">
+  <div class="container">
+    <div class="over-grid">
+      <div class="over-text">
+        <div class="section-label reveal">Over de bond</div>
+        <h2 class="section-title light reveal">Wie is DDFPA Nederland?</h2>
+        <p class="reveal">DDFPA Nederland <strong>(voorheen USAPL Nederland)</strong> is een toegewijde Nederlandse organisatie die powerlift-evenementen organiseert. Ons doel is om alle wedstrijden zo eerlijk en goed mogelijk te laten verlopen voor onze lifters.</p>
+        <p class="reveal">DDFPA Nederland is een <strong>affiliatie van IDFPA</strong>. We hebben de nauwe banden en samenwerking met <strong>USA Powerlifting</strong> behouden.</p>
+        <p class="reveal">Wij streven ernaar om samen met onze affiliaties de <strong>meest geteste bond in de wereld</strong> te zijn.</p>
+      </div>
+      <div class="over-stats reveal">
+        <div class="stat-card"><span class="n">IDFPA</span><span class="l">Internationale affiliatie</span></div>
+        <div class="stat-card"><span class="n">3</span><span class="l">Bestuursleden</span></div>
+        <div class="stat-card"><span class="n">2026</span><span class="l">Actief wedstrijdseizoen</span></div>
+        <div class="stat-card"><span class="n">NL</span><span class="l">Landelijke dekking</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sponsor">
+  <div class="container">
+    <div class="section-label reveal" style="justify-content:center;display:flex">Met dank aan</div>
+    <h2 class="section-title reveal">Onze Sponsor</h2>
+    <div class="sponsor-box reveal">
+      <div style="width:320px;height:120px;background:var(--off-white);border:1.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase">Sponsor logo</div>
+    </div>
+  </div>
+</section>
+
+<section id="bestuur">
+  <div class="container">
+    <div class="section-label reveal">Het team</div>
+    <h2 class="section-title reveal">Bestuur DDFPA Nederland</h2>
+    <p class="section-body reveal">Het bestuur zet zich in voor eerlijke, professioneel georganiseerde wedstrijden door heel Nederland.</p>
+    <div class="bestuur-grid">
+      <div class="bestuur-card reveal">
+        <div class="bestuur-avatar">NT</div>
+        <h4>Nikolas Thasing Mendez</h4>
+        <div class="role">Bestuurslid</div>
+        <a href="mailto:thasingmendez@gmail.com">thasingmendez@gmail.com</a>
+      </div>
+      <div class="bestuur-card reveal">
+        <div class="bestuur-avatar">RK</div>
+        <h4>Robin Kensenhuis</h4>
+        <div class="role">Bestuurslid</div>
+        <a href="mailto:robinkensenhuis@icloud.com">robinkensenhuis@icloud.com</a>
+      </div>
+      <div class="bestuur-card reveal">
+        <div class="bestuur-avatar">MK</div>
+        <h4>Meindert Korf</h4>
+        <div class="role">Bestuurslid</div>
+        <a href="mailto:meindertkorf@hotmail.com">meindertkorf@hotmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-inner">
+    <div>
+      <h2>Klaar om te lifteren?</h2>
+      <p>Schrijf je in voor de DDFPA Local Meet bij NikolasPT op 11 juli 2026.</p>
+    </div>
+    <a href="nikolaspt.html" class="btn btn-gold">Inschrijven</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">DDFPA<span> Nederland</span></div>
+  <p>© 2026 DDFPA Nederland · Affiliatie van IDFPA</p>
+  <p style="color:#444">Voorheen USAPL Nederland</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
