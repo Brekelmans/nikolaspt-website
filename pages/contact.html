@@ -4,46 +4,103 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Neem contact op met NikolasPT Haaren. Claim jouw gratis kennismakingstraining.">
 <title>Contact | NikolasPT</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:start; }
-  .contact-detail-list { list-style:none; margin-top:2rem; }
-  .contact-detail-list li { display:flex; align-items:flex-start; gap:1.2rem; padding:1rem 0; border-bottom:1px solid rgba(255,255,255,.07); font-size:.9rem; color:#ccc; }
-  .contact-detail-list .ci { font-size:1.2rem; min-width:1.5rem; flex-shrink:0; margin-top:.1rem; }
-  .contact-detail-list strong { display:block; font-size:.68rem; text-transform:uppercase; letter-spacing:.14em; color:var(--accent); margin-bottom:.3rem; }
-  .contact-detail-list a { color:#ccc; transition:color .2s; }
-  .contact-detail-list a:hover { color:var(--white); }
-  .social-row { display:flex; gap:.8rem; margin-top:2rem; flex-wrap:wrap; }
-  .soc-btn { display:flex; align-items:center; gap:.6rem; padding:.7rem 1.2rem; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:2px; font-size:.78rem; color:#ccc; font-weight:500; letter-spacing:.06em; text-transform:uppercase; transition:all .2s; }
-  .soc-btn:hover { background:rgba(255,255,255,.14); color:var(--white); }
-  .free-promise { background:rgba(200,16,46,.12); border:1px solid rgba(200,16,46,.3); border-radius:4px; padding:1.2rem 1.5rem; margin-top:2rem; font-size:.88rem; color:#e8a0a8; line-height:1.65; }
-  .free-promise strong { color:var(--white); }
-  .contact-form { display:flex; flex-direction:column; gap:1rem; }
-  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  .form-group { display:flex; flex-direction:column; gap:.4rem; }
-  .form-group label { font-size:.68rem; text-transform:uppercase; letter-spacing:.14em; color:#666; font-weight:700; }
-  .form-group input,.form-group textarea,.form-group select { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:2px; padding:.85rem 1rem; font-family:var(--font-body); font-size:.9rem; color:var(--white); outline:none; transition:border-color .2s; -webkit-appearance:none; }
-  .form-group input::placeholder,.form-group textarea::placeholder { color:#444; }
-  .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--accent); }
-  .form-group select option { background:var(--steel); color:var(--white); }
-  textarea { resize:vertical; min-height:120px; }
-  #form-success { display:none; background:rgba(200,16,46,.15); border:1px solid var(--accent); border-radius:2px; padding:1rem 1.2rem; color:var(--white); font-size:.9rem; }
-  .map-placeholder { background:var(--steel); border-radius:4px; overflow:hidden; margin-top:3rem; }
-  .map-placeholder iframe { width:100%; height:280px; border:none; display:block; filter:grayscale(.4) contrast(1.1); }
-  @media(max-width:900px){ .contact-layout,.form-row { grid-template-columns:1fr; } }
+:root {
+  --ink:#0A0A0A; --off-white:#F5F5F5; --white:#FFFFFF; --steel:#1C1C1C;
+  --accent:#1A1A1A; --muted:#6B6B6B; --border:#DDDDDD;
+  --font-display:'Roboto Slab',serif; --font-body:'Inter',sans-serif;
+  --max:1200px; --gap:clamp(1.5rem,5vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--off-white);color:var(--ink);line-height:1.65}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 var(--gap);height:76px;border-bottom:2px solid var(--white)}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-logo img{height:42px;width:42px;object-fit:contain;filter:brightness(0) invert(1)}
+.nav-logo-text{font-family:var(--font-display);font-weight:800;font-size:1.6rem;color:var(--white);line-height:1}
+.nav-logo-text span{color:var(--muted)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:#ccc;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-cta{background:var(--white) !important;color:var(--ink) !important;padding:.5rem 1.2rem !important;border-radius:2px;font-weight:600 !important}
+.nav-cta:hover{background:#ccc !important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:5px 0}
+
+.page-header{padding-top:76px;background:var(--steel)}
+.page-header-inner{max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--gap) clamp(2rem,4vw,3rem)}
+.page-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
+.page-title{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,6vw,5rem);line-height:.98;color:var(--white)}
+.page-subtitle{margin-top:1rem;font-size:1rem;color:#a8a8a8;max-width:560px;line-height:1.75}
+.page-header-bar{height:4px;background:linear-gradient(90deg,var(--white) 0%,transparent 100%);opacity:.25}
+
+.container{max-width:var(--max);margin:0 auto}
+section{padding:clamp(3rem,8vw,6rem) var(--gap)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+.btn{display:inline-block;padding:.85rem 2rem;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .25s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn-primary{background:var(--white);color:var(--ink)}
+.btn-primary:hover{background:#ccc}
+
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.contact-detail-list{list-style:none;margin-top:2rem}
+.contact-detail-list li{display:flex;align-items:flex-start;gap:1.2rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem;color:#ccc}
+.contact-detail-list .ci{font-size:1.2rem;min-width:1.5rem;flex-shrink:0;margin-top:.1rem}
+.contact-detail-list strong{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--white);margin-bottom:.3rem}
+.contact-detail-list a{color:#ccc;transition:color .2s}
+.contact-detail-list a:hover{color:var(--white)}
+.social-row{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+.soc-btn{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.2rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:2px;font-size:.78rem;color:#ccc;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
+.soc-btn:hover{background:rgba(255,255,255,.14);color:var(--white)}
+.free-promise{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:1.2rem 1.5rem;margin-top:2rem;font-size:.88rem;color:#ccc;line-height:1.65}
+.free-promise strong{color:var(--white)}
+
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:#666;font-weight:700}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:2px;padding:.85rem 1rem;font-family:var(--font-body);font-size:.9rem;color:var(--white);outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#444}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--white)}
+.form-group select option{background:var(--steel);color:var(--white)}
+textarea{resize:vertical;min-height:120px}
+#form-success{display:none;background:rgba(255,255,255,.1);border:1px solid var(--white);border-radius:2px;padding:1rem 1.2rem;color:var(--white);font-size:.9rem}
+.map-placeholder{background:var(--steel);border-radius:4px;overflow:hidden;margin-top:3rem}
+.map-placeholder iframe{width:100%;height:280px;border:none;display:block;filter:grayscale(1) contrast(1.1)}
+
+footer{background:#0a0a0a;padding:2rem var(--gap);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer .logo{font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:var(--white)}
+footer .logo span{color:var(--muted)}
+footer p{font-size:.78rem;color:#555}
+
+@media(max-width:900px){
+  .contact-layout,.form-row{grid-template-columns:1fr}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:#0a0a0a;padding:2rem;gap:1rem}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/logo-transparent.png" alt="NikolasPT logo">
+    <div class="nav-logo-text">Nikolas<span>PT</span></div>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="../index.html">Home</a></li>
     <li><a href="powerliften.html">Powerliften</a></li>
     <li><a href="groepslessen.html">Groepslessen</a></li>
     <li><a href="rooster.html">Rooster</a></li>
-    <li><a href="coaches.html">Wie zijn wij</a></li>
-    <li><a href="recensies.html">Recensies</a></li>
+    <li><a href="../index.html#coaches">Wie zijn wij</a></li>
     <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="recensies.html">Recensies</a></li>
     <li><a href="contact.html" class="active nav-cta">Gratis proefles</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -53,7 +110,7 @@
   <div class="page-header-inner">
     <div class="page-eyebrow">Start vandaag</div>
     <h1 class="page-title">Contact</h1>
-    <p class="page-subtitle">Claim nu jouw gratis training en start met écht trainen, écht veranderen. Geen verplichtingen, gewoon kennismaken.</p>
+    <p class="page-subtitle">Claim nu jouw gratis training en start met écht trainen, écht veranderen.</p>
   </div>
   <div class="page-header-bar"></div>
 </div>
@@ -61,76 +118,43 @@
 <section style="background:var(--ink)">
   <div class="container">
     <div class="contact-layout">
-      <!-- LEFT: INFO -->
       <div>
-        <div class="section-label" style="color:var(--accent)">Bereikbaarheid</div>
-        <h2 class="section-title light reveal">Neem contact op</h2>
-        <p style="color:#a0a4b0;font-size:.95rem;line-height:1.8" class="reveal">Heb je een vraag, wil je meer informatie of ben je klaar om te starten? Neem direct contact op met Nikolas of Sarah — wij reageren zo snel mogelijk.</p>
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem">Bereikbaarheid</div>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.6rem);color:var(--white);margin-bottom:1.2rem" class="reveal">Neem contact op</h2>
+        <p style="color:#a8a8a8;font-size:.95rem;line-height:1.8" class="reveal">Heb je een vraag, wil je meer informatie of ben je klaar om te starten? Neem direct contact op met Nikolas of Sarah.</p>
 
         <ul class="contact-detail-list">
-          <li class="reveal">
-            <span class="ci">📍</span>
-            <div><strong>Adres</strong>Langeweg 7<br>5076 AH Haaren, Noord-Brabant</div>
-          </li>
-          <li class="reveal">
-            <span class="ci">📞</span>
-            <div><strong>Coach Nikolas</strong><a href="tel:0636461216">06 - 364 61 216</a></div>
-          </li>
-          <li class="reveal">
-            <span class="ci">📞</span>
-            <div><strong>Coach Sarah</strong><a href="tel:0636344573">06 - 363 44 573</a></div>
-          </li>
-          <li class="reveal">
-            <span class="ci">✉️</span>
-            <div><strong>E-mail Nikolas</strong><a href="mailto:nikolas@nikolaspt.nl">nikolas@nikolaspt.nl</a><a href="mailto:thasingmendez@gmail.com" style="font-size:.82rem;color:#888">thasingmendez@gmail.com</a></div>
-          </li>
-          <li class="reveal">
-            <span class="ci">✉️</span>
-            <div><strong>E-mail Sarah</strong><a href="mailto:sarah.boomsma@gmail.com">sarah.boomsma@gmail.com</a></div>
-          </li>
+          <li class="reveal"><span class="ci">📍</span><div><strong>Adres</strong>Langeweg 7<br>5076 AH Haaren, Noord-Brabant</div></li>
+          <li class="reveal"><span class="ci">📞</span><div><strong>Coach Nikolas</strong><a href="tel:0636461216">06 - 364 61 216</a></div></li>
+          <li class="reveal"><span class="ci">📞</span><div><strong>Coach Sarah</strong><a href="tel:0636344573">06 - 363 44 573</a></div></li>
+          <li class="reveal"><span class="ci">✉️</span><div><strong>E-mail Nikolas</strong><a href="mailto:nikolas@nikolaspt.nl">nikolas@nikolaspt.nl</a></div></li>
+          <li class="reveal"><span class="ci">✉️</span><div><strong>E-mail Sarah</strong><a href="mailto:sarah.boomsma@gmail.com">sarah.boomsma@gmail.com</a></div></li>
         </ul>
 
         <div class="social-row reveal">
           <a href="https://www.instagram.com/nikolaspt_/" class="soc-btn" target="_blank">📷 Instagram</a>
           <a href="https://www.facebook.com/CoachesSarahNikoFit4Life" class="soc-btn" target="_blank">👍 Facebook</a>
-          <a href="https://www.linkedin.com/in/sarah-boomsma-nikolas-thasing-mendez-27253b146/" class="soc-btn" target="_blank">in LinkedIn</a>
         </div>
 
         <div class="free-promise reveal">
           <strong>🎁 Gratis kennismakingstraining</strong><br>
-          Voordat je bij ons begint, train je één keer volledig gratis. We meten je fysieke conditie, bespreken je doelen en je ervaart direct onze manier van werken. Aan het einde bespreken we hoe het er verder uitziet — jij kiest jouw weg.
+          Voordat je bij ons begint, train je één keer volledig gratis. We meten je fysieke conditie, bespreken je doelen en je ervaart direct onze manier van werken.
         </div>
 
         <div class="map-placeholder reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.0!2d5.2333!3d51.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDM1JzAwLjAiTiA1wrAxNCcwMC4wIkU!5e0!3m2!1snl!2snl!4v1234567890"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="NikolasPT locatie Haaren"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.0!2d5.2333!3d51.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDM1JzAwLjAiTiA1wrAxNCcwMC4wIkU!5e0!3m2!1snl!2snl!4v1234567890" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NikolasPT locatie Haaren"></iframe>
         </div>
       </div>
 
-      <!-- RIGHT: FORM -->
       <div class="reveal">
-        <h3 style="font-family:var(--font-display);font-size:2rem;color:var(--white);letter-spacing:.04em;margin-bottom:1.5rem">Stuur een bericht</h3>
+        <h3 style="font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--white);margin-bottom:1.5rem">Stuur een bericht</h3>
         <form class="contact-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <div class="form-group">
-              <label for="voornaam">Voornaam *</label>
-              <input type="text" id="voornaam" placeholder="Jouw voornaam" required>
-            </div>
-            <div class="form-group">
-              <label for="achternaam">Achternaam</label>
-              <input type="text" id="achternaam" placeholder="Achternaam">
-            </div>
+            <div class="form-group"><label for="voornaam">Voornaam *</label><input type="text" id="voornaam" placeholder="Jouw voornaam" required></div>
+            <div class="form-group"><label for="achternaam">Achternaam</label><input type="text" id="achternaam" placeholder="Achternaam"></div>
           </div>
-          <div class="form-group">
-            <label for="email">E-mailadres *</label>
-            <input type="email" id="email" placeholder="jouw@email.nl" required>
-          </div>
-          <div class="form-group">
-            <label for="telefoon">Telefoonnummer</label>
-            <input type="tel" id="telefoon" placeholder="06 – – – – – – –">
-          </div>
+          <div class="form-group"><label for="email">E-mailadres *</label><input type="email" id="email" placeholder="jouw@email.nl" required></div>
+          <div class="form-group"><label for="telefoon">Telefoonnummer</label><input type="tel" id="telefoon" placeholder="06 – – – – – – –"></div>
           <div class="form-group">
             <label for="interesse">Ik ben geïnteresseerd in</label>
             <select id="interesse">
@@ -139,17 +163,14 @@
               <option>Personal Training (1× per week)</option>
               <option>Personal Training (2× per week)</option>
               <option>Personal Training (3× of meer per week)</option>
-              <option>Duo Training (samen met partner/vriend)</option>
+              <option>Duo Training</option>
               <option>Groepslessen (coach Sarah)</option>
               <option>Gewichtscoaching / Voedingsschema</option>
               <option>Powerliften / Wedstrijdvoorbereiding</option>
               <option>Algemene vraag</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="bericht">Bericht / Jouw doel</label>
-            <textarea id="bericht" placeholder="Vertel iets over jouw doel, situatie of vraag..."></textarea>
-          </div>
+          <div class="form-group"><label for="bericht">Bericht / Jouw doel</label><textarea id="bericht" placeholder="Vertel iets over jouw doel, situatie of vraag..."></textarea></div>
           <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:1rem 2.5rem">Verstuur bericht</button>
           <div id="form-success">✓ Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.</div>
         </form>

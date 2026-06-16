@@ -5,117 +5,331 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="NikolasPT – Beste Personal Trainer van Oisterwijk-Haaren 2021–2024. Personal training, groepslessen, powerliften en voedingscoaching in Haaren.">
 <title>NikolasPT | Personal Training Haaren</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ── HOME-ONLY STYLES ─────────────────────────────── */
+  :root {
+    --ink:       #0A0A0A;
+    --off-white: #F5F5F5;
+    --white:     #FFFFFF;
+    --steel:     #1C1C1C;
+    --accent:    #1A1A1A;
+    --accent2:   #FFFFFF;
+    --muted:     #6B6B6B;
+    --border:    #DDDDDD;
+
+    --font-display: 'Roboto Slab', serif;
+    --font-serif:   'Playfair Display', serif;
+    --font-body:    'Inter', sans-serif;
+
+    --max: 1200px;
+    --gap: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.65; font-size: 16px; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── NAV ────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(17,17,17,0.96);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--gap);
+    height: 76px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .nav-logo { display: flex; align-items: center; gap: .7rem; }
+  .nav-logo img { height: 42px; width: 42px; object-fit: contain; filter: brightness(0) invert(1); }
+  .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--white); letter-spacing: 0.01em; line-height: 1; }
+  .nav-logo-text span { color: var(--muted); }
+  .nav-logo-tagline { font-family: var(--font-serif); font-style: italic; font-size: .62rem; color: #999; letter-spacing: .02em; margin-top: 1px; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #ccc; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--white) !important; padding: 0.5rem 1.2rem !important; border-radius: 2px; font-weight: 600 !important; }
+  .nav-cta:hover { background: #3a3a3a !important; color: var(--white) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
+
+  /* ─── HERO ───────────────────────────────────────────────── */
   #hero {
-    min-height: 100vh; background: var(--steel);
-    display: grid; grid-template-columns: 1fr 1fr;
-    overflow: hidden; padding-top: 68px;
+    min-height: 100vh;
+    background: var(--steel);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    padding-top: 76px;
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
-    padding: clamp(2rem,6vw,6rem) var(--gap) clamp(2rem,6vw,6rem) clamp(2rem,8vw,8rem);
+    padding: clamp(2rem, 6vw, 6rem) var(--gap) clamp(2rem, 6vw, 6rem) clamp(2rem, 8vw, 8rem);
+    position: relative; z-index: 1;
   }
-  .hero-eyebrow { font-size:.72rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:1.2rem; }
-  .hero-title { font-family:var(--font-display); font-size:clamp(4rem,8vw,7.5rem); line-height:.92; color:var(--white); letter-spacing:.02em; margin-bottom:1.5rem; }
-  .hero-title em { font-family:var(--font-serif); font-style:italic; color:var(--accent2); font-size:.6em; display:block; line-height:1.2; }
-  .hero-sub { font-size:1rem; color:#a0a4b0; max-width:380px; margin-bottom:2.5rem; line-height:1.7; }
-  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
-  .hero-award { margin-top:3rem; display:flex; align-items:center; gap:1rem; padding:1rem 1.5rem; background:rgba(232,200,74,.1); border-left:3px solid var(--accent2); border-radius:2px; max-width:420px; }
-  .award-text { font-size:.8rem; color:#c8b850; font-weight:500; line-height:1.4; }
-  .award-text strong { display:block; font-size:.95rem; color:var(--accent2); }
-  .hero-right { position:relative; overflow:hidden; }
-  .hero-right::before { content:''; position:absolute; inset:0; background:linear-gradient(100deg,var(--steel) 0%,transparent 30%),linear-gradient(0deg,var(--steel) 0%,transparent 25%); z-index:1; }
-  .hero-bg-img { width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(.7) contrast(1.1); }
-  .hero-stat-bar { position:absolute; bottom:0; left:0; right:0; z-index:2; display:flex; background:rgba(0,0,0,.6); backdrop-filter:blur(6px); }
-  .hero-stat { flex:1; padding:1rem 1.5rem; border-right:1px solid rgba(255,255,255,.1); text-align:center; }
-  .hero-stat:last-child { border-right:none; }
-  .hero-stat .num { font-family:var(--font-display); font-size:2rem; color:var(--white); display:block; line-height:1; }
-  .hero-stat .lbl { font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:#888; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .hero-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 7vw, 6.2rem); line-height: 0.96; color: var(--white); letter-spacing: 0.01em; margin-bottom: 1.5rem; }
+  .hero-title em { font-family: var(--font-serif); font-style: italic; font-weight: 700; color: var(--accent2); font-size: 0.55em; display: block; line-height: 1.3; margin-top: .3rem; }
+  .hero-sub { font-size: 1rem; color: #a8a8a8; max-width: 380px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.85rem 2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px; transition: all 0.25s; cursor: pointer; border: none; font-family: var(--font-body); }
+  .btn-primary { background: var(--accent); color: var(--white); }
+  .btn-primary:hover { background: #3a3a3a; }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.35); }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
 
-  /* diensten grid */
-  .diensten-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5px; background:var(--border); border:1.5px solid var(--border); border-radius:4px; overflow:hidden; }
-  .dienst-card { background:var(--white); padding:2.5rem 2rem; transition:background .2s; }
-  .dienst-card:hover { background:#fafaf9; }
-  .dienst-icon { width:44px; height:44px; background:var(--accent); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1.4rem; }
-  .dienst-card h3 { font-family:var(--font-display); font-size:1.6rem; letter-spacing:.02em; margin-bottom:.8rem; }
-  .dienst-card p { font-size:.9rem; color:var(--muted); line-height:1.7; }
-  .dienst-tag { display:inline-block; margin-top:1.2rem; font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); }
+  .hero-award { margin-top: 3rem; display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.06); border-left: 3px solid var(--accent2); border-radius: 2px; max-width: 440px; }
+  .award-icon { font-size: 1.8rem; }
+  .award-text { font-size: 0.8rem; color: #ccc; font-weight: 500; line-height: 1.4; }
+  .award-text strong { display: block; font-size: 0.95rem; color: var(--accent2); font-family: var(--font-display); font-weight: 700; }
 
-  /* quote block */
-  .quote-block { background:var(--steel); border-radius:4px; padding:3rem; text-align:center; }
-  .quote-block .big-q { font-family:var(--font-serif); font-size:clamp(1.1rem,2vw,1.5rem); color:var(--white); line-height:1.6; font-style:italic; }
-  .quote-block .big-q::before { content:'"'; font-size:4rem; color:var(--accent); display:block; line-height:1; }
-  .quote-block .qa { margin-top:1.5rem; font-size:.72rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, var(--steel) 0%, transparent 32%), linear-gradient(0deg, var(--steel) 0%, transparent 28%); z-index: 1; }
+  .hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 35%; filter: grayscale(1) contrast(1.1); }
+  .hero-stat-bar { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; display: flex; background: rgba(0,0,0,0.65); backdrop-filter: blur(6px); }
+  .hero-stat { flex: 1; padding: 1rem 1.5rem; border-right: 1px solid rgba(255,255,255,0.1); text-align: center; }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--white); display: block; line-height: 1; }
+  .hero-stat .lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; }
 
-  /* specialisaties */
-  .spec-layout { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:start; }
-  .spec-item { display:flex; align-items:flex-start; gap:1.2rem; padding:1.4rem 0; border-bottom:1px solid var(--border); }
-  .spec-item:first-child { border-top:1px solid var(--border); }
-  .spec-num { font-family:var(--font-display); font-size:2.8rem; line-height:1; color:var(--accent); min-width:2.5rem; opacity:.22; }
-  .spec-content h4 { font-size:1rem; font-weight:600; margin-bottom:.3rem; }
-  .spec-content p { font-size:.88rem; color:var(--muted); }
-  .free-box { margin-top:2.5rem; padding:1.8rem 2rem; background:var(--ink); border-radius:4px; color:var(--white); }
-  .free-box h4 { font-family:var(--font-display); font-size:1.5rem; letter-spacing:.04em; margin-bottom:.6rem; color:var(--accent2); }
-  .free-box p { font-size:.88rem; color:#aaa; margin-bottom:1.2rem; }
+  /* ─── SECTION BASE ────────────────────────────────────────── */
+  section { padding: clamp(3rem, 8vw, 7rem) var(--gap); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.02; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 1.5rem; }
+  .section-title.light { color: var(--white); }
+  .section-body { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; }
 
-  /* reviews strip */
-  .reviews-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
-  .rcard { background:var(--white); border-radius:4px; padding:1.5rem; border:1.5px solid var(--border); position:relative; }
-  .rcard::before { content:'"'; font-family:var(--font-serif); font-size:4rem; color:var(--accent); line-height:1; position:absolute; top:-.2rem; left:1.2rem; opacity:.12; }
-  .rcard p { font-size:.88rem; color:#444; line-height:1.75; margin-bottom:1rem; position:relative; z-index:1; }
-  .rcard .ra { font-size:.78rem; font-weight:600; color:var(--ink); text-transform:uppercase; letter-spacing:.08em; }
-  .rcard .rs { color:var(--accent2); font-size:.75rem; margin-top:.3rem; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
 
-  @media(max-width:900px){
-    #hero { grid-template-columns:1fr; min-height:auto; }
-    .hero-right { height:55vw; min-height:260px; }
-    .hero-right::before { display:none; }
-    .spec-layout { grid-template-columns:1fr; }
-    .reviews-strip { grid-template-columns:1fr; }
+  /* ─── ACTIE FOTO SECTIE ──────────────────────────────────── */
+  #actie {
+    background: var(--white);
   }
-  @media(max-width:560px){ .hero-stat .num { font-size:1.4rem; } }
+  .actie-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem,4vw,3rem); align-items: center; }
+  .actie-photo-wrap { position: relative; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+  .actie-photo-wrap img { width: 100%; display: block; transition: transform .6s ease; filter: grayscale(1) contrast(1.05); }
+  .actie-photo-wrap:hover img { transform: scale(1.04); }
+  .actie-badge { position: absolute; bottom: 1.2rem; left: 1.2rem; background: rgba(17,17,17,.85); backdrop-filter: blur(6px); color: #fff; padding: .6rem 1.1rem; border-radius: 4px; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .actie-text h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.8rem; margin-bottom: 1rem; }
+  .actie-text p { color: var(--muted); font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; }
+  .actie-stats-mini { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+  .actie-stat { text-align: center; }
+  .actie-stat .n { font-family: var(--font-display); font-weight: 800; font-size: 1.8rem; color: var(--accent); display: block; line-height: 1; }
+  .actie-stat .l { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ─── DIENSTEN ────────────────────────────────────────────── */
+  #diensten { background: var(--off-white); }
+  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .dienst-card { background: var(--white); padding: 2.5rem 2rem; position: relative; transition: background 0.2s; }
+  .dienst-card:hover { background: #f5f5f5; }
+  .dienst-icon { width: 44px; height: 44px; background: var(--accent); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.4rem; }
+  .dienst-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: 0.01em; margin-bottom: 0.8rem; }
+  .dienst-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+  .dienst-tag { display: inline-block; margin-top: 1.2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+
+  /* ─── ACTIE FOTO 2 (groepslessen) ────────────────────────── */
+  #groeps-actie { background: var(--steel); position: relative; overflow: hidden; }
+  .groeps-actie-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem,4vw,3rem); align-items: center; }
+  .groeps-actie-photo { position: relative; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  .groeps-actie-photo img { width: 100%; display: block; filter: grayscale(1) contrast(1.05); }
+  .groeps-actie-photo .overlay-tag { position: absolute; top: 1.2rem; right: 1.2rem; background: var(--accent); color: #fff; padding: .5rem 1rem; border-radius: 4px; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+  /* ─── SPECIALISATIES ──────────────────────────────────────── */
+  #specialisaties { background: var(--white); }
+  .spec-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .spec-list { margin-top: 2rem; }
+  .spec-item { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+  .spec-item:first-child { border-top: 1px solid var(--border); }
+  .spec-num { font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--accent); min-width: 2.5rem; opacity: 0.25; }
+  .spec-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .spec-content p { font-size: 0.88rem; color: var(--muted); }
+  .spec-visual { position: sticky; top: 90px; background: var(--steel); border-radius: 4px; overflow: hidden; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; }
+  .spec-visual-inner { padding: 3rem; text-align: center; }
+  .big-quote { font-family: var(--font-serif); font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--white); line-height: 1.5; font-style: italic; margin-bottom: 2rem; }
+  .big-quote::before { content: '"'; font-size: 4rem; color: var(--accent); display: block; line-height: 1; font-family: var(--font-serif); }
+  .spec-badge { background: var(--accent); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 2px; display: inline-block; }
+  .free-training-box { margin-top: 2.5rem; padding: 1.8rem 2rem; background: var(--ink); border-radius: 4px; color: var(--white); }
+  .free-training-box h4 { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; letter-spacing: 0.01em; margin-bottom: 0.6rem; color: var(--accent2); }
+  .free-training-box p { font-size: 0.88rem; color: #aaa; margin-bottom: 1.2rem; }
+
+  /* ─── INTERACTIEVE PRIJZEN (3D card stack) ───────────────── */
+  #prijzen { background: var(--off-white); }
+  .prijzen-3d-wrap {
+    margin-top: 3rem;
+    perspective: 1800px;
+  }
+  .prijzen-stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .prijs-3d-card {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .45s cubic-bezier(.22,.9,.3,1), box-shadow .45s ease, opacity .45s ease, border-color .3s ease;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  /* default (idle) state */
+  .prijs-3d-card { transform: scale(1) rotateY(0deg) translateZ(0); box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+
+  /* hovered / active card: pop forward */
+  .prijs-3d-card.is-active {
+    transform: scale(1.08) translateY(-10px) translateZ(40px);
+    box-shadow: 0 30px 70px rgba(0,0,0,.28);
+    border-color: var(--accent);
+    z-index: 3;
+  }
+  /* siblings fall back */
+  .prijzen-stack.has-active .prijs-3d-card:not(.is-active) {
+    transform: scale(.92) translateY(8px) rotateY(0deg) translateZ(-30px);
+    opacity: .55;
+    filter: saturate(.7);
+  }
+  .prijzen-stack.has-active .prijs-3d-card:not(.is-active):nth-child(1) { transform: scale(.92) translateY(8px) rotateY(8deg) translateZ(-30px) translateX(10px); }
+  .prijzen-stack.has-active .prijs-3d-card:not(.is-active):nth-child(3) { transform: scale(.92) translateY(8px) rotateY(-8deg) translateZ(-30px) translateX(-10px); }
+
+  .prijs-3d-card.featured-default { border-color: rgba(0,0,0,.35); }
+
+  .featured-badge { position: absolute; top: 0; right: 1.5rem; background: var(--accent); color: var(--white); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 0 0 4px 4px; z-index: 2; }
+  .prijs-head { padding: 2rem 1.8rem 1.5rem; border-bottom: 1px solid var(--border); }
+  .prijs-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: 0.01em; margin-bottom: 0.6rem; }
+  .price-line { display: flex; align-items: baseline; gap: 0.3rem; }
+  .price-amount { font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; color: var(--ink); line-height: 1; }
+  .price-unit { font-size: 0.85rem; color: var(--muted); }
+  .price-note { font-size: 0.78rem; color: var(--accent); margin-top: 0.4rem; font-weight: 600; }
+  .prijs-body { padding: 1.5rem 1.8rem; }
+  .prijs-body ul { list-style: none; }
+  .prijs-body li { padding: 0.5rem 0; font-size: 0.86rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.7rem; border-bottom: 1px solid #ececec; }
+  .prijs-body li:last-child { border-bottom: none; }
+  .prijs-body li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .prijs-footer { padding: 1.2rem 1.8rem 1.8rem; }
+  .prijs-hint { text-align: center; font-size: .78rem; color: var(--muted); margin-top: 2rem; }
+  .prijs-hint strong { color: var(--accent); }
+
+  .kortings-note { margin-top: 3rem; padding: 1.4rem 2rem; background: var(--ink); border-radius: 4px; color: #aaa; font-size: 0.88rem; display: flex; align-items: center; gap: 1.2rem; }
+  .kortings-note strong { color: var(--accent2); }
+
+  /* ─── COACHES ─────────────────────────────────────────────── */
+  #coaches { background: var(--white); }
+  .coaches-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+  .coach-card { background: var(--off-white); border-radius: 4px; overflow: hidden; border: 1.5px solid var(--border); }
+  .coach-header { background: var(--steel); padding: 2.5rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+  .coach-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 1.8rem; color: var(--white); flex-shrink: 0; }
+  .coach-info h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--white); letter-spacing: 0.01em; line-height: 1; }
+  .coach-info .role { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 600; margin-top: 0.3rem; }
+  .coach-body { padding: 2rem; }
+  .coach-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+  .coach-contact { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; }
+  .coach-contact a { display: flex; align-items: center; gap: 0.5rem; color: var(--ink); margin-bottom: 0.4rem; font-weight: 500; }
+  .coach-contact a:hover { color: var(--accent); }
+
+  /* ─── RECENSIES ───────────────────────────────────────────── */
+  #recensies { background: var(--off-white); }
+  .reviews-masonry { columns: 3; column-gap: 1.2rem; }
+  .review-card { break-inside: avoid; background: var(--white); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.2rem; border: 1.5px solid var(--border); position: relative; }
+  .review-card::before { content: '"'; font-family: var(--font-serif); font-size: 4rem; color: var(--accent); line-height: 1; position: absolute; top: -0.2rem; left: 1.2rem; opacity: 0.15; }
+  .review-text { font-size: 0.88rem; color: #444; line-height: 1.75; margin-bottom: 1rem; position: relative; z-index: 1; }
+  .review-author { font-size: 0.78rem; font-weight: 600; color: var(--ink); text-transform: uppercase; letter-spacing: 0.08em; }
+  .review-stars { color: var(--accent2); font-size: 0.75rem; margin-top: 0.3rem; }
+
+  /* ─── CONTACT ─────────────────────────────────────────────── */
+  #contact { background: var(--ink); color: var(--white); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
+  .contact-info p { color: #a8a8a8; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+  .contact-details { list-style: none; }
+  .contact-details li { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 0.9rem; color: #ccc; }
+  .contact-details .ci { font-size: 1.2rem; min-width: 1.5rem; }
+  .contact-details strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.2rem; }
+  .social-row { display: flex; gap: 1rem; margin-top: 2rem; }
+  .social-btn { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.2rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; font-size: 0.78rem; color: #ccc; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: #777; font-weight: 600; }
+  .form-group input, .form-group textarea, .form-group select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; padding: 0.85rem 1rem; font-family: var(--font-body); font-size: 0.9rem; color: var(--white); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: #555; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+  .form-group select option { background: var(--steel); color: var(--white); }
+  textarea { resize: vertical; min-height: 120px; }
+
+  footer { background: #0a0a0a; padding: 2rem var(--gap); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--white); letter-spacing: 0.01em; }
+  footer .logo span { color: var(--muted); }
+  footer p { font-size: 0.78rem; color: #555; }
+
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vw; min-height: 300px; }
+    .hero-right::before { display: none; }
+    .spec-layout, .contact-layout, .coaches-grid, .actie-grid, .groeps-actie-grid { grid-template-columns: 1fr; }
+    .groeps-actie-grid { direction: ltr; }
+    .reviews-masonry { columns: 2; }
+    .spec-visual { position: static; aspect-ratio: 16/9; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 76px; left: 0; right: 0; background: #0a0a0a; padding: 2rem; gap: 1rem; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .form-row { grid-template-columns: 1fr; }
+    .prijzen-stack { grid-template-columns: 1fr; gap: 1.5rem; }
+    .prijzen-stack.has-active .prijs-3d-card:not(.is-active) { transform: scale(.95) translateY(0) translateZ(0); opacity: .7; }
+    .prijs-3d-card.is-active { transform: scale(1.02) translateY(0) translateZ(0); }
+  }
+  @media (max-width: 560px) {
+    .reviews-masonry { columns: 1; }
+    .actie-stats-mini { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ─── NAV ─────────────────────────────────────────────────── -->
 <nav>
-  <a href="index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <div class="nav-logo">
+    <img src="images/logo-transparent.png" alt="NikolasPT logo">
+    <div>
+      <div class="nav-logo-text">Nikolas<span>PT</span></div>
+      <div class="nav-logo-tagline">Kracht, conditie en gezondheid</div>
+    </div>
+  </div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="#diensten">Diensten</a></li>
     <li><a href="pages/powerliften.html">Powerliften</a></li>
     <li><a href="pages/groepslessen.html">Groepslessen</a></li>
     <li><a href="pages/rooster.html">Rooster</a></li>
-    <li><a href="pages/coaches.html">Wie zijn wij</a></li>
-    <li><a href="pages/recensies.html">Recensies</a></li>
+    <li><a href="#coaches">Coaches</a></li>
     <li><a href="pages/prijzen.html">Prijzen</a></li>
+    <li><a href="pages/recensies.html">Recensies</a></li>
     <li><a href="pages/contact.html" class="nav-cta">Gratis proefles</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
+<!-- ─── HERO ──────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Personal Training · Haaren</div>
     <h1 class="hero-title">Écht<br>Trainen<br><em>begint hier</em></h1>
     <p class="hero-sub">Wacht niet langer. Kom in actie en maak kennis met wat effectief trainen écht betekent. Jij kiest je doel — wij zorgen voor de route.</p>
     <div class="hero-actions">
-      <a href="pages/contact.html" class="btn btn-primary">Gratis proefles aanvragen</a>
-      <a href="pages/prijzen.html" class="btn btn-outline-light">Bekijk diensten</a>
+      <a href="#contact" class="btn btn-primary">Gratis proefles aanvragen</a>
+      <a href="#diensten" class="btn btn-outline">Bekijk diensten</a>
     </div>
     <div class="hero-award">
-      <div style="font-size:1.8rem">🥇</div>
-      <div class="award-text">
-        <strong>Beste PT van Oisterwijk-Haaren</strong>
-        4 jaar op rij: 2021 · 2022 · 2023 · 2024 — Dutch Fitness Awards
-      </div>
+      <div class="award-icon">🥇</div>
+      <div class="award-text"><strong>Beste PT van Oisterwijk-Haaren</strong>4 jaar op rij: 2021 · 2022 · 2023 · 2024 — Dutch Fitness Awards</div>
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80&auto=format&fit=crop" alt="Training bij NikolasPT">
+    <img class="hero-bg-img" src="images/groepsles-2.jpeg" alt="Training bij NikolasPT in Haaren">
     <div class="hero-stat-bar">
       <div class="hero-stat"><span class="num">100+</span><span class="lbl">Gecoachte sporters</span></div>
       <div class="hero-stat"><span class="num">4×</span><span class="lbl">Beste PT award</span></div>
@@ -124,89 +338,335 @@
   </div>
 </section>
 
-<!-- DIENSTEN -->
-<section style="background:var(--white)">
+<!-- ─── ACTIE FOTO 1 ───────────────────────────────────────────── -->
+<section id="actie">
   <div class="container">
-    <div class="reveal" style="margin-bottom:3rem">
-      <div class="section-label">Wat wij bieden</div>
-      <h2 class="section-title">Onze Diensten</h2>
-      <p class="section-body">Voor elk doel hebben wij de juiste aanpak. Van personal training tot powerliften en voedingscoaching.</p>
-    </div>
-    <div class="diensten-grid">
-      <div class="dienst-card reveal"><div class="dienst-icon">💪</div><h3>Personal Training</h3><p>Volledig op maat. Jouw tempo, jouw doelen. Elke les anders, effectief en resultatengericht.</p><a href="pages/prijzen.html" class="dienst-tag">→ Bekijk tarieven</a></div>
-      <div class="dienst-card reveal"><div class="dienst-icon">👥</div><h3>Duo Training</h3><p>Train met een vriend of partner. Zelfde persoonlijke aanpak, 20% voordeliger.</p><a href="pages/prijzen.html" class="dienst-tag">→ 20% voordeel</a></div>
-      <div class="dienst-card reveal"><div class="dienst-icon">🏋️</div><h3>Groepslessen</h3><p>Energieke groepstrainingen onder leiding van coach Sarah. Kracht, conditie en vetverbranding op jouw niveau.</p><a href="pages/groepslessen.html" class="dienst-tag">→ Meer info</a></div>
-      <div class="dienst-card reveal"><div class="dienst-icon">🥗</div><h3>Gewichtscoaching</h3><p>Wekelijks voedingsschema, boodschappenlijst en app-begeleiding. Duurzaam resultaat, geen dieet.</p><a href="pages/prijzen.html" class="dienst-tag">→ €19,95 p/w</a></div>
-      <div class="dienst-card reveal"><div class="dienst-icon">🏆</div><h3>Powerliften</h3><p>USAPL en DPL aangesloten club. Meerdere Nederlandse en Europese kampioenen opgeleid.</p><a href="pages/powerliften.html" class="dienst-tag">→ Meer info</a></div>
-      <div class="dienst-card reveal"><div class="dienst-icon">🩹</div><h3>Training met blessures</h3><p>Blessure of beperking? Wij passen de training altijd aan. Er is altijd een oplossing.</p><a href="pages/contact.html" class="dienst-tag">→ Neem contact op</a></div>
+    <div class="actie-grid">
+      <div class="actie-photo-wrap reveal">
+        <img src="images/groepsles-1.jpeg" alt="Groepstraining bij NikolasPT">
+        <div class="actie-badge">📍 Onze gym in Haaren</div>
+      </div>
+      <div class="actie-text reveal">
+        <div class="section-label">Echte sfeer, echte resultaten</div>
+        <h3>Dit is hoe een training bij ons eruitziet</h3>
+        <p>Geen kale fitnessruimte met onpersoonlijke apparaten — bij NikolasPT train je in een kleinschalige, gezellige omgeving waar elke coach jou persoonlijk kent.</p>
+        <p>Van core-work op de mat tot krachttraining met kettlebells: elke les is afgestemd op de groep die er op dat moment is.</p>
+        <div class="actie-stats-mini">
+          <div class="actie-stat"><span class="n">8-12</span><span class="l">Per groepsles</span></div>
+          <div class="actie-stat"><span class="n">100%</span><span class="l">Persoonlijke aandacht</span></div>
+          <div class="actie-stat"><span class="n">2</span><span class="l">Vaste coaches</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOE WIJ TRAINEN -->
-<section style="background:var(--off-white)">
+<!-- ─── DIENSTEN ───────────────────────────────────────────────── -->
+<section id="diensten">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3.5rem">
+      <div class="section-label">Wat wij bieden</div>
+      <h2 class="section-title">Onze Diensten</h2>
+      <p class="section-body">Sinds het ontstaan van NikolasPT hebben we leden geholpen met de meest uiteenlopende doelen: afvallen, spiermassa opbouwen, sterker worden, beter presteren. Voor elk doel hebben we de juiste aanpak.</p>
+    </div>
+    <div class="diensten-grid">
+      <div class="dienst-card reveal"><div class="dienst-icon">💪</div><h3>Personal Training</h3><p>Volledig op maat. Jij staat centraal — jouw tempo, jouw doelen, jouw training. Elke les is anders, effectief en resultatengericht.</p><span class="dienst-tag">→ Individueel</span></div>
+      <div class="dienst-card reveal"><div class="dienst-icon">👥</div><h3>Duo Training</h3><p>Samen trainen met een medesporter. Zelfde persoonlijke begeleiding en maatwerk, maar je deelt de ruimte. Motiverend én voordeliger.</p><span class="dienst-tag">→ 20% voordeel</span></div>
+      <div class="dienst-card reveal"><div class="dienst-icon">🏋️</div><h3>Groepslessen</h3><p>Energieke groepstrainingen onder leiding van coach Sarah. Kracht, conditie en vetverbranding — op jouw eigen niveau.</p><span class="dienst-tag">→ Door coach Sarah</span></div>
+      <div class="dienst-card reveal"><div class="dienst-icon">🥗</div><h3>Gewichtscoaching</h3><p>Wekelijks voedingsschema, boodschappenlijst en app-begeleiding én coaching op het eetpatroon dat bij jou past.</p><span class="dienst-tag">→ Duurzaam resultaat</span></div>
+      <div class="dienst-card reveal"><div class="dienst-icon">🏆</div><h3>Powerliften</h3><p>USAPL en DPL aangesloten club. Van beginner tot wedstrijdatleet — NikolasPT heeft meerdere Nederlandse kampioenen afgeleverd.</p><span class="dienst-tag">→ Officiële club</span></div>
+      <div class="dienst-card reveal"><div class="dienst-icon">🩹</div><h3>Training met blessures</h3><p>Blessure of aandoening? Geen probleem. Onze coaches zijn gespecialiseerd in trainen met lichamelijke beperkingen.</p><span class="dienst-tag">→ Maatwerktraject</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ACTIE FOTO 2 (groepslessen plank) ──────────────────────── -->
+<section id="groeps-actie">
+  <div class="container">
+    <div class="groeps-actie-grid">
+      <div class="reveal">
+        <div class="section-label" style="color:var(--accent2)">Plank, core & kracht</div>
+        <h2 class="section-title light">Iedereen Doet Mee, Op Eigen Niveau</h2>
+        <p style="color:#a8a8a8;font-size:.95rem;line-height:1.8;margin-bottom:1rem">Of je nu voor het eerst een planktraining doet of al jaren actief bent — bij onze groepslessen werkt iedereen op zijn eigen tempo, met begeleiding van coach Sarah.</p>
+        <p style="color:#a8a8a8;font-size:.95rem;line-height:1.8;margin-bottom:1.5rem">De combinatie van core-stabiliteit, kracht en een hechte groepssfeer maakt elke les motiverend.</p>
+        <a href="#contact" class="btn btn-primary">Doe gratis mee aan een les</a>
+      </div>
+      <div class="groeps-actie-photo reveal">
+        <img src="images/groepsles-2.jpeg" alt="Plank training groepsles NikolasPT">
+        <div class="overlay-tag">Live in de gym</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SPECIALISATIES ─────────────────────────────────────────── -->
+<section id="specialisaties">
   <div class="container">
     <div class="spec-layout">
       <div>
         <div class="section-label reveal">Hoe wij trainen</div>
         <h2 class="section-title reveal">Effectief in 45–60 Minuten</h2>
-        <p class="section-body reveal">Wij geloven dat je met een goed opgebouwde training in 45 tot 60 minuten alles kunt bereiken. Geen tijdverspilling, wél resultaat.</p>
-        <div style="margin-top:1.5rem">
-          <div class="spec-item reveal"><div class="spec-num">01</div><div class="spec-content"><h4>Techniek</h4><p>Juiste uitvoering is de basis. Wij corrigeren van dag één, zodat je veilig en effectief beweegt.</p></div></div>
+        <p class="section-body reveal">Wij geloven dat je met een goed opgebouwde training in 45 tot 60 minuten alles kunt bereiken wat je nodig hebt. Geen tijdverspilling, wél resultaat.</p>
+        <div class="spec-list">
+          <div class="spec-item reveal"><div class="spec-num">01</div><div class="spec-content"><h4>Techniek</h4><p>Juiste uitvoering is de basis van elke training. Wij corrigeren van dag één, zodat je veilig en effectief beweegt.</p></div></div>
           <div class="spec-item reveal"><div class="spec-num">02</div><div class="spec-content"><h4>Doorzettingsvermogen</h4><p>We helpen je verder dan je dacht te kunnen. Elke les een stap dichter bij jouw doel.</p></div></div>
-          <div class="spec-item reveal"><div class="spec-num">03</div><div class="spec-content"><h4>Inzet</h4><p>Jij brengt de wil — wij zorgen voor de begeleiding. Samen halen we het maximale eruit.</p></div></div>
-          <div class="spec-item reveal"><div class="spec-num">04</div><div class="spec-content"><h4>Tegen de grens aanzitten</h4><p>We gaan tot aan je grens — en soms net iets verder. Altijd veilig en verantwoord.</p></div></div>
+          <div class="spec-item reveal"><div class="spec-num">03</div><div class="spec-content"><h4>Inzet</h4><p>Jij brengt de wil — wij zorgen voor de begeleiding. Samen halen we het maximale uit iedere training.</p></div></div>
+          <div class="spec-item reveal"><div class="spec-num">04</div><div class="spec-content"><h4>Tegen de grens aanzitten</h4><p>We gaan tot aan je grens — en soms net iets verder. Altijd op een veilige en verantwoorde manier.</p></div></div>
         </div>
-        <div class="free-box reveal">
+        <div class="free-training-box reveal">
           <h4>Gratis Kennismakingstraining</h4>
-          <p>Voordat je start, train je één keer volledig gratis. We meten je conditie en bespreken je doelen.</p>
-          <a href="pages/contact.html" class="btn btn-primary">Meld je aan</a>
+          <p>Voordat je start, train je één keer volledig gratis. We meten je conditie, bespreken je doelen en je ervaart direct hoe onze aanpak werkt.</p>
+          <a href="#contact" class="btn btn-primary">Meld je aan</a>
         </div>
       </div>
-      <div class="quote-block reveal">
-        <div class="big-q">Als je zelf in de sportschool traint, train je op een veel minder effectieve manier dan hoe Niko een training opzet. Zeker een aanrader.</div>
-        <div class="qa">— Puck Smulders, lid NikolasPT</div>
+      <div class="spec-visual reveal">
+        <div class="spec-visual-inner">
+          <div class="big-quote">Als je zelf in de sportschool traint, train je op een veel minder effectieve manier dan hoe Niko een training opzet.</div>
+          <span class="spec-badge">— Puck Smulders, lid NikolasPT</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RECENSIES STRIP -->
-<section style="background:var(--white)">
+<!-- ─── POWERLIFTEN ────────────────────────────────────────────── -->
+<section id="powerliften" style="background:var(--ink)">
   <div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
-      <div>
-        <div class="section-label reveal">Ervaringen</div>
-        <h2 class="section-title reveal">Wat leden zeggen</h2>
+    <div class="section-label" style="color:var(--accent2)">Officiële USAPL & DPL Club</div>
+    <h2 class="section-title light reveal">Powerliften op het Hoogste Niveau</h2>
+    <p class="reveal" style="color:#a8a8a8;font-size:.95rem;line-height:1.8;max-width:680px;margin-bottom:2rem">Wij zijn een officieel bij USAPL en DPL aangesloten club in Nederland. Van debutant tot elite-atleet — NikolasPT heeft meerdere Nederlandse en Europese kampioenen afgeleverd.</p>
+    <ul style="list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:900px" class="reveal">
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Rob</strong> — NL Kampioen 2024, -90kg (USAPL)</li>
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Coach Nikolas</strong> — NL Kampioen 2024, -100kg + 3e overall</li>
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Simone</strong> — NL Kampioen 2024, junioren -82,5kg</li>
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Lenneke</strong> — NL Kampioen 2024, master-1 -75kg</li>
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Coach Nikolas</strong> — NL Kampioen 2025, -110kg (DPL)</li>
+      <li style="display:flex;gap:.8rem;color:#ccc;font-size:.88rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)">🏆 <strong style="color:var(--accent2)">Coach Nikolas</strong> — Europees Kampioen USAPL 2023/24</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── COACHES ────────────────────────────────────────────────── -->
+<section id="coaches">
+  <div class="container">
+    <div class="section-label reveal">Het team</div>
+    <h2 class="section-title reveal">De Coaches</h2>
+    <div class="coaches-grid">
+      <div class="coach-card reveal">
+        <div class="coach-header"><div class="coach-avatar">NK</div><div class="coach-info"><h3>Coach Nikolas</h3><div class="role">Head Coach & Oprichter</div></div></div>
+        <div class="coach-body">
+          <p>Nikolas heeft ruime ervaring in de sportwereld op een zeer hoog niveau. Hij heeft zich op verschillende vlakken ontwikkeld tijdens zijn tijd bij Defensie.</p>
+          <p style="margin-top:0.8rem">Na jaren dienst besloot hij op advies van coach Sarah zijn kennis en kunde te delen in de civiele wereld. Inmiddels heeft Nikolas honderden mensen gecoacht en getraind.</p>
+          <div class="coach-contact"><a href="tel:0636461216">📞 06 - 364 61 216</a><a href="mailto:thasingmendez@gmail.com">✉️ thasingmendez@gmail.com</a></div>
+        </div>
       </div>
-      <a href="pages/recensies.html" class="btn btn-outline reveal">Alle recensies →</a>
-    </div>
-    <div class="reviews-strip">
-      <div class="rcard reveal"><p>Niko is een hele fijne en eerlijke coach. Hij denkt goed met je mee. De trainingen zijn elke keer weer anders waardoor een les nooit eentonig is. Zeker een aanrader.</p><div class="ra">Puck Smulders</div><div class="rs">★★★★★</div></div>
-      <div class="rcard reveal"><p>Onwijs goed geholpen om een gezondere levensstijl te krijgen. Ik viel niet alleen af, maar leerde ook sporten — en zit nu veel lekkerder in mijn vel.</p><div class="ra">Eline Mulder</div><div class="rs">★★★★★</div></div>
-      <div class="rcard reveal"><p>Super gemotiveerde trainers die waarmaken wat ze beloven! Eerlijke hardwerkende mensen, ze verkopen geen onzin en zorgen ervoor dat je je doel behaalt!</p><div class="ra">Iris Bonnema</div><div class="rs">★★★★★</div></div>
+      <div class="coach-card reveal">
+        <div class="coach-header"><div class="coach-avatar" style="background:#6B6E78">SB</div><div class="coach-info"><h3>Coach Sarah</h3><div class="role">Personal Trainer & Groepscoach</div></div></div>
+        <div class="coach-body">
+          <p>Sarah is een zeer vaardig personal trainer en een waardevolle toevoeging in onze gym. Al ruim 3 jaar werkzaam bij NikolasPT, met ervaring in individuele én groepsbegeleiding.</p>
+          <p style="margin-top:0.8rem">Ze maakt persoonlijke trainingsschema's, doet fitheidbeoordelingen en heeft een diepe passie voor fitness en gezondheid.</p>
+          <div class="coach-contact"><a href="tel:0636344573">📞 06 - 363 44 573</a><a href="mailto:sarah.boomsma@gmail.com">✉️ sarah.boomsma@gmail.com</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section style="background:var(--accent);padding:clamp(2.5rem,6vw,4rem) var(--gap)">
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem">
-    <div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);letter-spacing:.04em;line-height:1">Klaar om te starten?</h2>
-      <p style="color:rgba(255,255,255,.8);margin-top:.5rem">De eerste training is altijd gratis. Geen verplichtingen.</p>
+<!-- ─── PRIJZEN — INTERACTIEVE 3D KAARTEN ──────────────────────── -->
+<section id="prijzen">
+  <div class="container">
+    <div class="section-label reveal">Transparante tarieven</div>
+    <h2 class="section-title reveal">Prijzen & Pakketten</h2>
+    <p class="section-body reveal">Alle trajecten lopen over 13 weken. Bij vooruitbetaling voor het volledige traject ontvang je altijd 10% korting. <strong style="color:var(--ink)">Klik op een pakket</strong> om het uit te lichten.</p>
+
+    <div class="prijzen-3d-wrap">
+      <div class="prijzen-stack" id="prijzenStack">
+        <div class="prijs-3d-card reveal" data-card="1">
+          <div class="prijs-head">
+            <h3>1× per week</h3>
+            <div class="price-line"><span class="price-amount">€27,50</span><span class="price-unit">/ week</span></div>
+            <div class="price-note">In één keer betalen: 10% korting</div>
+          </div>
+          <div class="prijs-body">
+            <ul>
+              <li>1 personal training per week</li>
+              <li>Volledig op maat trainingsschema</li>
+              <li>Persoonlijke begeleiding</li>
+              <li>Wekelijkse voortgangsmeting</li>
+              <li>13 weken traject</li>
+            </ul>
+          </div>
+          <div class="prijs-footer"><a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;display:block;color:var(--ink);border-color:var(--border)">Aanmelden</a></div>
+        </div>
+
+        <div class="prijs-3d-card featured-default reveal" data-card="2">
+          <div class="featured-badge">Meest gekozen</div>
+          <div class="prijs-head">
+            <h3>2× per week</h3>
+            <div class="price-line"><span class="price-amount">€42,50</span><span class="price-unit">/ week</span></div>
+            <div class="price-note">In één keer betalen: 10% korting</div>
+          </div>
+          <div class="prijs-body">
+            <ul>
+              <li>2 personal trainings per week</li>
+              <li>Sneller resultaat door hogere frequentie</li>
+              <li>Volledig persoonlijk trainingsplan</li>
+              <li>Wekelijkse voortgangsmeting</li>
+              <li>Flexibele tijden</li>
+            </ul>
+          </div>
+          <div class="prijs-footer"><a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;display:block">Aanmelden</a></div>
+        </div>
+
+        <div class="prijs-3d-card reveal" data-card="3">
+          <div class="prijs-head">
+            <h3>3× of meer</h3>
+            <div class="price-line"><span class="price-amount">€16,67</span><span class="price-unit">/ les</span></div>
+            <div class="price-note">In één keer betalen: 10% korting</div>
+          </div>
+          <div class="prijs-body">
+            <ul>
+              <li>3+ trainings per week</li>
+              <li>Maximale progressie in 13 weken</li>
+              <li>Ideaal voor wedstrijdvoorbereiding</li>
+              <li>Intensieve persoonlijke begeleiding</li>
+              <li>13 weken traject</li>
+            </ul>
+          </div>
+          <div class="prijs-footer"><a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;display:block;color:var(--ink);border-color:var(--border)">Aanmelden</a></div>
+        </div>
+      </div>
+      <p class="prijs-hint">💡 Klik op een pakket om het naar voren te halen — of beweeg je muis erover</p>
     </div>
-    <a href="pages/contact.html" class="btn" style="background:var(--white);color:var(--accent);flex-shrink:0">Gratis proefles aanvragen</a>
+
+    <div class="kortings-note reveal">
+      <span style="font-size:1.5rem">💡</span>
+      <span><strong>Duo training?</strong> Train tegelijk met een vriend of partner en bespaar <strong>20%</strong> ten opzichte van individuele personal training.</span>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ─── RECENSIES ──────────────────────────────────────────────── -->
+<section id="recensies">
+  <div class="container">
+    <div style="margin-bottom:3rem">
+      <div class="section-label reveal">Wat leden zeggen</div>
+      <h2 class="section-title reveal">Recensies</h2>
+      <p class="section-body reveal">Al deze recensies zijn terug te vinden op Google of Facebook.</p>
+    </div>
+    <div class="reviews-masonry">
+      <div class="review-card reveal"><p class="review-text">Niko is een hele fijne en eerlijke coach. De trainingen zijn elke keer weer anders waardoor een les nooit eentonig is. Zeker een aanrader.</p><div class="review-author">Puck Smulders</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-card reveal"><p class="review-text">Onwijs goed geholpen om een gezondere levensstijl te krijgen. Ik viel niet alleen af, maar leerde ook sporten — en zit nu veel lekkerder in mijn vel.</p><div class="review-author">Eline Mulder</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-card reveal"><p class="review-text">Niko is een zeer gedreven, enthousiaste trainer. Veel resultaten gezien die mijn zoon verder brengen binnen de topsport.</p><div class="review-author">Veronique van der Zanden</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-card reveal"><p class="review-text">Via mijn vriendin meegesleept naar Nikolas PT. Nu 5 maanden verder en 15 kg lichter — de beste stap gemaakt!</p><div class="review-author">Stefan Brekelmans</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-card reveal"><p class="review-text">Bijna 1 jaar aan het sporten. Zeer tevreden! Effectieve trainingen en daarbij weet hij je mentaal ook sterker te maken.</p><div class="review-author">Debbie van Hulst</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-card reveal"><p class="review-text">Super fijne trainingen. Ondanks mijn lichamelijke beperkingen kan ik bij Nikolas en Sarah toch mijn kracht en gezondheid verbeteren.</p><div class="review-author">Monique de Bever</div><div class="review-stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="section-label" style="color:var(--accent)">Contact</div>
+        <h2 class="section-title light reveal">Klaar om te Starten?</h2>
+        <p class="reveal">Wacht niet langer. Neem contact op voor een gratis kennismakingstraining — vrijblijvend, geen verplichtingen.</p>
+        <ul class="contact-details">
+          <li><span class="ci">📍</span><div><strong>Locatie</strong>Haaren, Noord-Brabant</div></li>
+          <li><span class="ci">📞</span><div><strong>Coach Nikolas</strong><a href="tel:0636461216" style="color:#ccc">06 - 364 61 216</a></div></li>
+          <li><span class="ci">📞</span><div><strong>Coach Sarah</strong><a href="tel:0636344573" style="color:#ccc">06 - 363 44 573</a></div></li>
+          <li><span class="ci">✉️</span><div><strong>E-mail Nikolas</strong><a href="mailto:thasingmendez@gmail.com" style="color:#ccc">thasingmendez@gmail.com</a></div></li>
+          <li><span class="ci">✉️</span><div><strong>E-mail Sarah</strong><a href="mailto:sarah.boomsma@gmail.com" style="color:#ccc">sarah.boomsma@gmail.com</a></div></li>
+        </ul>
+        <div class="social-row">
+          <a href="https://www.instagram.com/nikolaspt_/" class="social-btn" target="_blank">📷 Instagram</a>
+          <a href="https://www.facebook.com/CoachesSarahNikoFit4Life" class="social-btn" target="_blank">👍 Facebook</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.6rem;color:var(--white);letter-spacing:0.01em;margin-bottom:1.5rem">Stuur een bericht</h3>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label for="naam">Naam</label><input type="text" id="naam" placeholder="Jouw naam" required></div>
+            <div class="form-group"><label for="tel">Telefoon</label><input type="tel" id="tel" placeholder="06 – – – – – – –"></div>
+          </div>
+          <div class="form-group"><label for="email">E-mailadres</label><input type="email" id="email" placeholder="jouw@email.nl" required></div>
+          <div class="form-group">
+            <label for="interesse">Ik ben geïnteresseerd in</label>
+            <select id="interesse">
+              <option value="">Kies een dienst...</option>
+              <option>Personal Training (1x per week)</option>
+              <option>Personal Training (2x per week)</option>
+              <option>Personal Training (3x+ per week)</option>
+              <option>Duo Training</option>
+              <option>Groepslessen (Coach Sarah)</option>
+              <option>Gewichtscoaching / Voeding</option>
+              <option>Powerliften</option>
+              <option>Gratis kennismakingstraining</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="bericht">Bericht</label><textarea id="bericht" placeholder="Vertel iets over jouw doel of vraag..."></textarea></div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:1rem 2.5rem;font-size:0.88rem">Verstuur bericht</button>
+          <div id="form-success" style="display:none;background:rgba(255,255,255,0.1);border:1px solid var(--white);border-radius:2px;padding:1rem 1.2rem;color:var(--white);font-size:0.9rem">✓ Bedankt! We nemen zo snel mogelijk contact met je op.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="logo">Nikolas<span>PT</span></div>
-  <p>© 2024 NikolasPT · Langeweg 7, 5076 AH Haaren · <a href="mailto:nikolas@nikolaspt.nl" style="color:#555">nikolas@nikolaspt.nl</a></p>
-  <p style="color:#444">Dutch Fitness Awards · USAPL · DPL</p>
+  <p>© 2024 NikolasPT · Haaren, Noord-Brabant · Beste PT van Oisterwijk-Haaren 2021–2024</p>
+  <p style="font-size:0.72rem;color:#444">Dutch Fitness Awards · USAPL · DPL</p>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.querySelector('button[type=submit]').disabled = true;
+  }
+
+  /* ── INTERACTIEVE PRIJZEN-KAARTEN ── */
+  const stack = document.getElementById('prijzenStack');
+  const cards = stack.querySelectorAll('.prijs-3d-card');
+
+  function activateCard(card) {
+    cards.forEach(c => c.classList.remove('is-active'));
+    card.classList.add('is-active');
+    stack.classList.add('has-active');
+  }
+  function resetCards() {
+    cards.forEach(c => c.classList.remove('is-active'));
+    stack.classList.remove('has-active');
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => activateCard(card));
+    card.addEventListener('click', () => activateCard(card));
+  });
+  stack.addEventListener('mouseleave', () => resetCards());
+
+  // On touch devices, tap toggles
+  let lastTapped = null;
+  cards.forEach(card => {
+    card.addEventListener('touchstart', () => {
+      if (lastTapped === card) { resetCards(); lastTapped = null; }
+      else { activateCard(card); lastTapped = card; }
+    }, { passive: true });
+  });
+</script>
 </body>
 </html>

@@ -2,38 +2,94 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lees wat leden zeggen over NikolasPT Haaren. Echte recensies van Google en Facebook.">
+<meta name="description" content="Lees wat leden zeggen over NikolasPT Haaren.">
 <title>Recensies | NikolasPT</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  .reviews-masonry { columns:3; column-gap:1.2rem; }
-  .rcard { break-inside:avoid; background:var(--white); border-radius:4px; padding:1.8rem; margin-bottom:1.2rem; border:1.5px solid var(--border); position:relative; }
-  .rcard::before { content:'"'; font-family:var(--font-serif); font-size:4rem; color:var(--accent); line-height:1; position:absolute; top:-.2rem; left:1.2rem; opacity:.12; }
-  .rcard p { font-size:.9rem; color:#444; line-height:1.8; margin-bottom:1rem; position:relative; z-index:1; }
-  .rcard .ra { font-size:.78rem; font-weight:700; color:var(--ink); text-transform:uppercase; letter-spacing:.08em; }
-  .rcard .rs { color:var(--accent2); font-size:.8rem; margin-top:.3rem; }
-  .review-source { font-size:.7rem; color:#aaa; margin-top:.4rem; font-style:italic; }
-  .social-cta { background:var(--steel); border-radius:4px; padding:2.5rem; text-align:center; margin-top:3rem; }
-  .social-cta h3 { font-family:var(--font-display); font-size:2rem; color:var(--white); letter-spacing:.04em; margin-bottom:.8rem; }
-  .social-cta p { color:#a0a4b0; font-size:.92rem; margin-bottom:1.5rem; }
-  .social-row { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
-  .soc-btn { display:flex; align-items:center; gap:.6rem; padding:.75rem 1.4rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:2px; font-size:.8rem; color:#ddd; font-weight:500; letter-spacing:.06em; text-transform:uppercase; transition:all .2s; }
-  .soc-btn:hover { background:rgba(255,255,255,.15); color:var(--white); }
-  @media(max-width:900px){ .reviews-masonry { columns:2; } }
-  @media(max-width:560px){ .reviews-masonry { columns:1; } }
+:root {
+  --ink:#0A0A0A; --off-white:#F5F5F5; --white:#FFFFFF; --steel:#1C1C1C;
+  --accent:#1A1A1A; --muted:#6B6B6B; --border:#DDDDDD;
+  --font-display:'Roboto Slab',serif; --font-serif:'Playfair Display',serif; --font-body:'Inter',sans-serif;
+  --max:1200px; --gap:clamp(1.5rem,5vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--off-white);color:var(--ink);line-height:1.65}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 var(--gap);height:76px;border-bottom:2px solid var(--white)}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-logo img{height:42px;width:42px;object-fit:contain;filter:brightness(0) invert(1)}
+.nav-logo-text{font-family:var(--font-display);font-weight:800;font-size:1.6rem;color:var(--white);line-height:1}
+.nav-logo-text span{color:var(--muted)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:#ccc;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-cta{background:var(--white) !important;color:var(--ink) !important;padding:.5rem 1.2rem !important;border-radius:2px;font-weight:600 !important}
+.nav-cta:hover{background:#ccc !important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:5px 0}
+
+.page-header{padding-top:76px;background:var(--steel)}
+.page-header-inner{max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--gap) clamp(2rem,4vw,3rem)}
+.page-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
+.page-title{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,6vw,5rem);line-height:.98;color:var(--white)}
+.page-subtitle{margin-top:1rem;font-size:1rem;color:#a8a8a8;max-width:560px;line-height:1.75}
+.page-header-bar{height:4px;background:linear-gradient(90deg,var(--white) 0%,transparent 100%);opacity:.25}
+
+.container{max-width:var(--max);margin:0 auto}
+section{padding:clamp(3rem,8vw,6rem) var(--gap)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+.btn{display:inline-block;padding:.85rem 2rem;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .25s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn-primary{background:var(--ink);color:var(--white)}
+.btn-primary:hover{background:#333}
+
+.reviews-masonry{columns:3;column-gap:1.2rem}
+.rcard{break-inside:avoid;background:var(--white);border-radius:4px;padding:1.8rem;margin-bottom:1.2rem;border:1.5px solid var(--border);position:relative}
+.rcard::before{content:'"';font-family:var(--font-serif);font-size:4rem;color:var(--ink);line-height:1;position:absolute;top:-.2rem;left:1.2rem;opacity:.1}
+.rcard p{font-size:.9rem;color:#444;line-height:1.8;margin-bottom:1rem;position:relative;z-index:1}
+.rcard .ra{font-size:.78rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em}
+.rcard .rs{color:var(--ink);font-size:.8rem;margin-top:.3rem}
+.review-source{font-size:.7rem;color:#aaa;margin-top:.4rem;font-style:italic}
+.social-cta{background:var(--steel);border-radius:4px;padding:2.5rem;text-align:center;margin-top:3rem}
+.social-cta h3{font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--white);margin-bottom:.8rem}
+.social-cta p{color:#a8a8a8;font-size:.92rem;margin-bottom:1.5rem}
+.social-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.soc-btn{display:flex;align-items:center;gap:.6rem;padding:.75rem 1.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:2px;font-size:.8rem;color:#ddd;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
+.soc-btn:hover{background:rgba(255,255,255,.15);color:var(--white)}
+
+footer{background:#0a0a0a;padding:2rem var(--gap);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer .logo{font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:var(--white)}
+footer .logo span{color:var(--muted)}
+footer p{font-size:.78rem;color:#555}
+
+@media(max-width:900px){
+  .reviews-masonry{columns:2}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:#0a0a0a;padding:2rem;gap:1rem}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
+@media(max-width:560px){.reviews-masonry{columns:1}}
 </style>
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Nikolas<span>PT</span></a>
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/logo-transparent.png" alt="NikolasPT logo">
+    <div class="nav-logo-text">Nikolas<span>PT</span></div>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="../index.html">Home</a></li>
     <li><a href="powerliften.html">Powerliften</a></li>
     <li><a href="groepslessen.html">Groepslessen</a></li>
     <li><a href="rooster.html">Rooster</a></li>
-    <li><a href="coaches.html">Wie zijn wij</a></li>
-    <li><a href="recensies.html" class="active">Recensies</a></li>
+    <li><a href="../index.html#coaches">Wie zijn wij</a></li>
     <li><a href="prijzen.html">Prijzen</a></li>
+    <li><a href="recensies.html" class="active">Recensies</a></li>
     <li><a href="contact.html" class="nav-cta">Gratis proefles</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -43,7 +99,7 @@
   <div class="page-header-inner">
     <div class="page-eyebrow">Wat leden zeggen</div>
     <h1 class="page-title">Recensies</h1>
-    <p class="page-subtitle">Alle recensies zijn te vinden op Google of Facebook. Lees zelf wat onze leden ervaren bij NikolasPT.</p>
+    <p class="page-subtitle">Alle recensies zijn te vinden op Google of Facebook. Lees zelf wat onze leden ervaren.</p>
   </div>
   <div class="page-header-bar"></div>
 </div>
@@ -51,102 +107,27 @@
 <section style="background:var(--off-white)">
   <div class="container">
     <div class="reviews-masonry">
-      <div class="rcard reveal">
-        <p>Niko is een hele fijne en eerlijke coach. Hij denkt goed met je mee als het gaat om het behalen van doelen. De trainingen zijn elke keer weer anders waardoor een les nooit eentonig is. Als je zelf in de sportschool traint, train je toch op een veel minder effectieve manier dan hoe Niko een training opzet. Zeker een aanrader.</p>
-        <div class="ra">Puck Smulders</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Onwijs goed geholpen om een gezondere levensstijl te krijgen. Ik kwam om af te vallen, en dit lukte mij door de fijne begeleiding van Sarah en de fijne app waarin ik meer inzicht kreeg in een gezond voedingspatroon. Sarah is heel betrokken en motiveert je goed. Maar als cadeautje viel ik niet alleen af, maar leerde ook sporten zodat ik veel lekkerder in mijn vel ben gaan zitten en mij veel energieker voel. Ik was altijd sceptisch, maar ik zie het resultaat en mijn broekmaat zegt mij dat het echt werkt!</p>
-        <div class="ra">Eline Mulder</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Niko is een zeer gedreven, enthousiaste trainer. Veel resultaten gezien die mijn zoon verder brengen binnen de topsport. Denkt hierin goed mee en begeleid hem fantastisch.</p>
-        <div class="ra">Veronique van der Zanden</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Ongeveer 1 jaar geleden gestart met personal training en voedingsschema's bij Nikolas en Sarah. Dit heeft mij geholpen om er een gezondere en actievere leefstijl op na te houden. Vorig jaar de nodige kg's kwijtgeraakt en qua fitheid mooie stappen gemaakt! Voedingsschema is prima vol te houden, lekker gevarieerd. Trainingen zijn uitdagend, maar geven veel voldoening!</p>
-        <div class="ra">Danny Sup</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Via mijn vriendin meegesleept naar Nikolas PT. Nu ongeveer 5 maanden verder en 15kg lichter — de beste stap gemaakt in 2020 en 2021! Zeker aan te bevelen ongeacht je conditie of kracht. Ook tijdens de lockdown lekker buiten door sporten.</p>
-        <div class="ra">Stefan Brekelmans</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Super fijne trainingen. Ondanks mijn lichamelijke beperkingen kan ik bij Nikolas en Sarah toch mijn kracht en gezondheid verbeteren. Altijd een training afgestemd op mij persoonlijk. Helemaal top. Ga zo door!</p>
-        <div class="ra">Monique de Bever</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Nikolas kijkt goed naar je doel en weet precies wat er voor nodig is om dat te kunnen halen. Zo is elke training een stap dichterbij.</p>
-        <div class="ra">Bart Poel</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Altijd goed geholpen met sporten en super enthousiast, daar krijg je zelf ook motivatie van!</p>
-        <div class="ra">Janneke Schilders</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Super gemotiveerde trainers die waarmaken wat ze beloven! Eerlijke hardwerkende mensen, ze verkopen geen onzin en zorgen ervoor dat je je eigen doel behaalt!</p>
-        <div class="ra">Iris Bonnema</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Een grote aanrader mede door de professionele benadering van Nikolas en Sarah. Nikolas is een betrokken, vriendelijke en sportieve trainer. Laat zich niet kisten door de huidige situatie. Denkt vooral in oplossingen en niet in problemen. De trainingen zijn altijd afwisselend en doeltreffend. Kortom: al meer dan een jaar bij hen en we hopen nog heel lang bij hen te mogen trainen. Chapeau voor NikolasPT!</p>
-        <div class="ra">Vicky van Zon</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Bijna 1 jaar aan het sporten. Zeer tevreden! Effectieve trainingen en daarbij weet hij je mentaal ook sterker te maken!</p>
-        <div class="ra">Debbie van Hulst</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Geweldige trainers met verstand van zaken. Ik merkte dat er in een korte tijd veel vooruitgang te behalen valt. Het is voor iedereen weggelegd! Mocht je een specifiek doel hebben zoals afvallen, of werken aan je conditie, ben je bij NikolasPT aan het juiste adres. Ik geef 10!!!</p>
-        <div class="ra">Jelle Zeegers</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Nu een aantal weken bezig en super tevreden! Niko verzorgt persoonlijke trainingen die erg divers en effectief zijn. Het is altijd gezellig en door de trainingen zit je lekkerder in je vel. Super blij mee!</p>
-        <div class="ra">Maria Kaloudis</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Nikolas is een personal trainer pur sang. Elke les anders, heel knap. Zeer motiverend zonder too much te zijn. Super!</p>
-        <div class="ra">Marthe Nagengast</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Nico heeft alle persoonlijke aandacht voor je. Hij is kundig, geeft goede adviezen en is streng — 50x opdrukken is ook echt 50x opdrukken. Je merkt snel dat je meer kracht krijgt.</p>
-        <div class="ra">Annemarie Raes</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Al enkele weken aan het trainen. Flexibel en vriendelijke service maakt het trainen nog aangenamer. Ze zijn nog lang niet van me af!</p>
-        <div class="ra">Frits Kuijper</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Super fijne en goede begeleiding en coaching! Alles op maat en met veel passie en gedrevenheid.</p>
-        <div class="ra">Daniëlle van het Spijker</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>De persoonlijke aandacht en het fanatisme van Niko heeft ervoor gezorgd dat wij graag bij NikolasPT trainen. Wij kunnen het iedereen aanbevelen!</p>
-        <div class="ra">Pim Bastiaanssen</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Enorm goede training op maat! Wij gaan iedere keer met veel plezier sporten, elke keer met een andere training.</p>
-        <div class="ra">Hannie van Empel</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Via mijn ouders bij Nikolas uitgekomen! Erg fijne trainingen! 5 sterretjes NikolasPT.</p>
-        <div class="ra">Inge van Zon</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Voor mij perfecte trainingen. Motiverende trainer in ontspannen sfeer maar wel stevig doorgaan.</p>
-        <div class="ra">Hans Smit</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Een zekere aanbeveling! Goede trainingen, gecombineerd met veel variatie!</p>
-        <div class="ra">Robert Snellen</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Goede begeleiding en fijne coaches! Altijd heerlijk gesport en met mankementen van het lichaam verzinnen we gewoon wat anders om toch door te trainen.</p>
-        <div class="ra">Brenda Gerritse</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
-      <div class="rcard reveal">
-        <p>Twee enorm gemotiveerde coaches!</p>
-        <div class="ra">Rosa Boomsma</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div>
-      </div>
+      <div class="rcard reveal"><p>Niko is een hele fijne en eerlijke coach. De trainingen zijn elke keer weer anders waardoor een les nooit eentonig is. Zeker een aanrader.</p><div class="ra">Puck Smulders</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Onwijs goed geholpen om een gezondere levensstijl te krijgen. Ik viel niet alleen af maar leerde ook sporten zodat ik veel lekkerder in mijn vel ben gaan zitten.</p><div class="ra">Eline Mulder</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Niko is een zeer gedreven, enthousiaste trainer. Veel resultaten gezien die mijn zoon verder brengen binnen de topsport.</p><div class="ra">Veronique van der Zanden</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Ongeveer 1 jaar geleden gestart met personal training en voedingsschema's. Vorig jaar de nodige kg's kwijtgeraakt en qua fitheid mooie stappen gemaakt!</p><div class="ra">Danny Sup</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Via mijn vriendin meegesleept naar Nikolas PT. Nu ongeveer 5 maanden verder en 15kg lichter — de beste stap gemaakt in 2020 en 2021!</p><div class="ra">Stefan Brekelmans</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Super fijne trainingen. Ondanks mijn lichamelijke beperkingen kan ik bij Nikolas en Sarah toch mijn kracht en gezondheid verbeteren. Helemaal top!</p><div class="ra">Monique de Bever</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Nikolas kijkt goed naar je doel en weet precies wat er voor nodig is om dat te kunnen halen. Zo is elke training een stap dichterbij.</p><div class="ra">Bart Poel</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Altijd goed geholpen met sporten en super enthousiast, daar krijg je zelf ook motivatie van!</p><div class="ra">Janneke Schilders</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Super gemotiveerde trainers die waarmaken wat ze beloven! Eerlijke hardwerkende mensen, ze verkopen geen onzin.</p><div class="ra">Iris Bonnema</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Een grote aanrader mede door de professionele benadering van Nikolas en Sarah. De trainingen zijn altijd afwisselend en doeltreffend.</p><div class="ra">Vicky van Zon</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Bijna 1 jaar aan het sporten. Zeer tevreden! Effectieve trainingen en daarbij weet hij je mentaal ook sterker te maken!</p><div class="ra">Debbie van Hulst</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Geweldige trainers met verstand van zaken. Het is voor iedereen weggelegd! Ik geef 10!!!</p><div class="ra">Jelle Zeegers</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Nu een aantal weken bezig en super tevreden! Niko verzorgt persoonlijke trainingen die erg divers en effectief zijn.</p><div class="ra">Maria Kaloudis</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Nikolas is een personal trainer pur sang. Elke les anders, heel knap. Zeer motiverend zonder too much te zijn. Super!</p><div class="ra">Marthe Nagengast</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Nico heeft alle persoonlijke aandacht voor je. Hij is kundig, geeft goede adviezen en is streng. Je merkt snel dat je meer kracht krijgt.</p><div class="ra">Annemarie Raes</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Al enkele weken aan het trainen. Flexibel en vriendelijke service maakt het trainen nog aangenamer.</p><div class="ra">Frits Kuijper</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Super fijne en goede begeleiding en coaching! Alles op maat en met veel passie en gedrevenheid.</p><div class="ra">Daniëlle van het Spijker</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>De persoonlijke aandacht en het fanatisme van Niko heeft ervoor gezorgd dat wij graag bij NikolasPT trainen.</p><div class="ra">Pim Bastiaanssen</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Enorm goede training op maat! Wij gaan iedere keer met veel plezier sporten, elke keer met een andere training.</p><div class="ra">Hannie van Empel</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Voor mij perfecte trainingen. Motiverende trainer in ontspannen sfeer maar wel stevig doorgaan.</p><div class="ra">Hans Smit</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
+      <div class="rcard reveal"><p>Goede begeleiding en fijne coaches! Altijd heerlijk gesport en met mankementen van het lichaam verzinnen we gewoon wat anders.</p><div class="ra">Brenda Gerritse</div><div class="rs">★★★★★</div><div class="review-source">Facebook</div></div>
     </div>
 
     <div class="social-cta reveal">
@@ -154,10 +135,10 @@
       <p>Wil jij alle recensies en de meest actuele ervaringen zien? Bekijk onze Google- en Facebook-pagina's.</p>
       <div class="social-row">
         <a href="https://www.facebook.com/CoachesSarahNikoFit4Life/reviews/" class="soc-btn" target="_blank">👍 Facebook reviews</a>
-        <a href="https://www.instagram.com/nikolas.pt_haaren/" class="soc-btn" target="_blank">📷 Instagram</a>
+        <a href="https://www.instagram.com/nikolaspt_/" class="soc-btn" target="_blank">📷 Instagram</a>
       </div>
       <div style="margin-top:2rem">
-        <p style="color:#a0a4b0;margin-bottom:1rem">Wil jij ook jouw doelen bereiken? Wacht niet langer!</p>
+        <p style="color:#a8a8a8;margin-bottom:1rem">Wil jij ook jouw doelen bereiken? Wacht niet langer!</p>
         <a href="contact.html" class="btn btn-primary">Gratis proefles aanvragen</a>
       </div>
     </div>
